@@ -1,1 +1,11 @@
-Test
+Task 1
+
+The vsim has to be opened inside the SiLagoNN folder, from there the script can be run
+
+source tb/vec_add/simulation.tcl
+
+What it does it compiles the design ware library and the design files and then compiles the testbench as well as running the simulation for a set amount of time.
+
+To my understanding, the simulation what it does is it loads up some instructions into the DPU and then the DPU performs some adds between 2 numbers which are later saved in the Register File.
+
+This is a very top-level interpretation as I am not sure if the goal is for us to understand the full inner workings as the course focuses more on us working with the tools and checking the whole Synthesis flow.

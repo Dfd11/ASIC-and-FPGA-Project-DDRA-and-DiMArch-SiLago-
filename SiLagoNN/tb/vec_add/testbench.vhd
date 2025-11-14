@@ -198,7 +198,7 @@ BEGIN
 		variable temp_str : string(1 to 3);
 		variable index : integer :=0;
 	begin
-		file_open(fstatus, fptr, "instruction.bin", read_mode);
+		file_open(fstatus, fptr, "./tb/vec_add/instruction.bin", read_mode);
 		while (not endfile(fptr)) loop
 			readline(fptr, row);
 			if row'length > 0 then

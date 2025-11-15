@@ -3,4 +3,8 @@ SiLagoNN/modelsim.ini
 SiLagoNN/transcript
 SiLagoNN/vsim.wlf
 SiLagoNN/work
+SiLagoNN/exe
+SiLagoNN/command.log
+SiLagoNN/filenames.log
+SiLagoNN/default.svf
 SiLagoNN/tcl_stacktrace.txt

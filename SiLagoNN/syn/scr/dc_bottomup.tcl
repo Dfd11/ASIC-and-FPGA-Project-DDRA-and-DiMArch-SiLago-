@@ -29,81 +29,149 @@
 # $ dc_shell -f ../syn/dc_flat.tcl
 ################################################################################
 
+
+#DFD Need to check it the source file is correct
+variable SOURCE_DIR ../rtl
+
+variable DB_DIR ../db
+variable SYN_DIR ../syn
+
+#/* compile each subblock independently */
 remove_design -all
 
 # load synopsys config
-source ../syn/synopsys_dc.setup
-
-#/* compile each subblock independently */
+source ${SYN_DIR}/synopsys_dc.setup
 
 proc nth_pass {n} {
     set prev_n [expr {$n - 1}]
 
-    analyze -format vhdl -lib WORK {"../rtl/types_and_constants.vhd"}
-
-    #Compile ROM_COEFFICIENTS_1
-    analyze -format vhdl -lib WORK {"../rtl/rom_coefficients.vhd"}
-    elaborate rom_coefficients
-    current_design rom_coefficients
+    ##############################
+    #Then the design components
+    set hierarchy_files [split [read [open ${SOURCE_DIR}/silego_hierarchy.txt r]] "\n"]
+    foreach filename [lrange ${hierarchy_files} 0 end-1] {
+        puts "${filename}"
+        analyze -format VHDL -lib WORK "${SOURCE_DIR}/${filename}"
+    }
+    elaborate silego
+    current_design silego
     link
     uniquify
-    source ../syn/constraints.sdc
+    source ${SYN_DIR}/constraints.sdc
     if  {$n > 1} {
-        source ../syn/db/rom_coefficients_${prev_n}.wscr
+        source ${DB_DIR}/silego_${prev_n}.wscr
     }
     compile
-
-    #Compile FSM_1
-    analyze -format vhdl -lib WORK {"../rtl/fsm.vhd"}
-    elaborate FSM
-    current_design FSM
+    ##############################
+    
+    ##############################
+    #Compile TOP LEFT
+    set temp_top Silago_top_left_corner
+    analyze -format vhdl -lib WORK {"${SOURCE_DIR}/mtrf/${temp_top}.vhd"}
+    elaborate ${temp_top}
+    current_design ${temp_top}
     link
     uniquify
-    source ../syn/constraints.sdc
+    source ${SYN_DIR}/constraints.sdc
     if  {$n > 1} {
-        source ../syn/db/FSM_${prev_n}.wscr
+        source ${DB_DIR}/${temp_top}_${prev_n}.wscr
     }
     compile
+    ##############################
 
-    #Compile ARITHMETIC_UNIT_1
-    analyze -format vhdl -lib WORK {"../rtl/mac.vhd"}
-    elaborate mac
-    analyze -format vhdl -lib WORK {"../rtl/arithmetic_unit.vhd"}
-    elaborate arithmetic_unit
+    ##############################
+    #Compile TOP
+    set temp_top Silago_top
+    analyze -format vhdl -lib WORK {"${SOURCE_DIR}/mtrf/${temp_top}.vhd"}
+    elaborate ${temp_top}
+    current_design ${temp_top}
     link
     uniquify
-    source ../syn/constraints.sdc
+    source ${SYN_DIR}/constraints.sdc
     if  {$n > 1} {
-
-
-      source ../syn/db/arithmetic_unit_${prev_n}.wscr
+        source ${DB_DIR}/${temp_top}_${prev_n}.wscr
     }
     compile
-
-    #Compile SHIFT_REGISTER_1
-    analyze -format vhdl -lib WORK {"../rtl/shift_register.vhd"}
-    elaborate shift_register
-    current_design shift_register
+    ##############################
+    ##############################
+    #Compile TOP RIGHT
+    set temp_top Silago_right_corner
+    analyze -format vhdl -lib WORK {"${SOURCE_DIR}/mtrf/${temp_top}.vhd"}
+    elaborate ${temp_top}
+    current_design ${temp_top}
     link
     uniquify
-    source ../syn/constraints.sdc
+    source ${SYN_DIR}/constraints.sdc
     if  {$n > 1} {
-        source ../syn/db/shift_register_${prev_n}.wscr
+        source ${DB_DIR}/${temp_top}_${prev_n}.wscr
     }
     compile
-
-    #compile FIR toplevel
-    analyze -format vhdl -lib WORK {"../rtl/parallel_fir.vhd"}
-    elaborate parallel_fir
-    current_design parallel_fir
+    ##############################
+    ##############################
+    #Compile TOP
+    set temp_top Silago_bot_left_corner
+    analyze -format vhdl -lib WORK {"${SOURCE_DIR}/mtrf/${temp_top}.vhd"}
+    elaborate ${temp_top}
+    current_design ${temp_top}
     link
     uniquify
-    source ../syn/constraints.sdc
-    dont_touch rom_coefficients true
-    dont_touch FSM true
-    dont_touch arithmetic_unit true
-    dont_touch shift_register true
+    source ${SYN_DIR}/constraints.sdc
+    if  {$n > 1} {
+        source ${DB_DIR}/${temp_top}_${prev_n}.wscr
+    }
     compile
+    ##############################
+    ##############################
+    #Compile TOP
+    set temp_top Silago_bot
+    analyze -format vhdl -lib WORK {"${SOURCE_DIR}/mtrf/${temp_top}.vhd"}
+    elaborate ${temp_top}
+    current_design ${temp_top}
+    link
+    uniquify
+    source ${SYN_DIR}/constraints.sdc
+    if  {$n > 1} {
+        source ${DB_DIR}/${temp_top}_${prev_n}.wscr
+    }
+    compile
+    ##############################
+    ##############################
+    #Compile TOP
+    set temp_top Silago_bot_right_corner
+    analyze -format vhdl -lib WORK {"${SOURCE_DIR}/mtrf/${temp_top}.vhd"}
+    elaborate ${temp_top}
+    current_design ${temp_top}
+    link
+    uniquify
+    source ${SYN_DIR}/constraints.sdc
+    if  {$n > 1} {
+        source ${DB_DIR}/${temp_top}_${prev_n}.wscr
+    }
+    compile
+    ##############################
+
+    ##############################
+    #Compile TOP
+    set temp_top drra_wrapper
+    analyze -format vhdl -lib WORK {"${SOURCE_DIR}/mtrf/${temp_top}.vhd"}
+    elaborate ${temp_top}
+    current_design ${temp_top}
+    link
+    uniquify
+    source ${SYN_DIR}/constraints.sdc
+
+    #LAST ONE DOESNT HAVE A COMPILE BEFORE WE NEED TO SET THE DO NOT TOUCH
+    ##############################
+
+    dont_touch silego true
+    dont_touch Silago_top_left_corner true
+    dont_touch Silago_top true
+    dont_touch Silago_top_right_corner true
+    dont_touch Silago_bot_left_corner true
+    dont_touch Silago_bot true
+    dont_touch Silago_bot_right_corner true
+
+    compile
+    ##############################
 
     #check if the constraints are met
     report_constraint
@@ -111,22 +179,43 @@ proc nth_pass {n} {
     report_power
     report_timing
     report_constraint
-    characterize -constraint {ROM_COEFFICIENTS_1 FSM_1 ARITHMETIC_UNIT_1 SHIFT_REGISTER_1}
-    current_design FSM
-    write_script > ../syn/db/FSM_${n}.wscr
-    current_design arithmetic_unit
-    write_script > ../syn/db/arithmetic_unit_${n}.wscr
-    current_design shift_register
-    write_script > ../syn/db/shift_register_${n}.wscr
-    current_design rom_coefficients
-    write_script > ../syn/db/rom_coefficients_${n}.wscr
+    characterize -constraint {SILEGO_cell Silago_top_l_corner_inst Silago_top_inst Silago_top_r_corner_inst Silago_bot_l_corner_inst Silago_bot_inst Silago_bot_r_corner_inst}
+
+    set tmp_top silego
+    current_design ${tmp_top}
+    write_script > ${DB_DIR}/${temp_top}_${n}.wscr
+
+    set tmp_top Silago_top_left_corner
+    current_design ${tmp_top}
+    write_script > ${DB_DIR}/${temp_top}_${n}.wscr
+
+    set tmp_top  Silago_top
+    current_design ${tmp_top}
+    write_script > ${DB_DIR}/${temp_top}_${n}.wscr
+
+    set tmp_top  Silago_top_right_corner
+    current_design ${tmp_top}
+    write_script > ${DB_DIR}/${temp_top}_${n}.wscr
+
+    set tmp_top Silago_bot_left_corner
+    current_design ${tmp_top}
+    write_script > ${DB_DIR}/${temp_top}_${n}.wscr
+
+    set tmp_top  Silago_bot
+    current_design ${tmp_top}
+    write_script > ${DB_DIR}/${temp_top}_${n}.wscr
+
+    set tmp_top  Silago_bot_right_corner
+    current_design ${tmp_top}
+    write_script > ${DB_DIR}/${temp_top}_${n}.wscr
+
 }
 
 puts "First pass"
 nth_pass 1
 nth_pass 2
-current_design parallel_fir
-report_power > ../syn/rpt/area.txt
-report_power > ../syn/rpt/power.txt
-report_timing > ../syn/rpt/timing.txt
-write_file -format verilog -hier -output ../syn/db/parallel_fir.v
+current_design drra_wrapper
+report_power > ${SYN_DIR}/rpt/area.txt
+report_power > ${SYN_DIR}/rpt/power.txt
+report_timing > ${SYN_DIR}/rpt/timing.txt
+write_file -format verilog -hier -output ${DB_DIR}/parallel_fir.v

@@ -40,14 +40,15 @@ variable SYN_DIR ../syn
 remove_design -all
 
 # load synopsys config
-source ${SYN_DIR}/synopsys_dc.setup
+source "${SYN_DIR}/synopsys_dc.setup"
 
 proc nth_pass {n} {
     set prev_n [expr {$n - 1}]
-
     ##############################
     #Then the design components
-    set hierarchy_files [split [read [open ${SOURCE_DIR}/silego_hierarchy.txt r]] "\n"]
+    set temp_top silego
+    puts "${temp_top}"
+    set hierarchy_files [split [read [open "${SOURCE_DIR}/${silego}_hierarchy.txt" r]] "\n"]
     foreach filename [lrange ${hierarchy_files} 0 end-1] {
         puts "${filename}"
         analyze -format VHDL -lib WORK "${SOURCE_DIR}/${filename}"
@@ -56,9 +57,9 @@ proc nth_pass {n} {
     current_design silego
     link
     uniquify
-    source ${SYN_DIR}/constraints.sdc
+    source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
-        source ${DB_DIR}/silego_${prev_n}.wscr
+        source "${DB_DIR}/silego_${prev_n}.wscr"
     }
     compile
     ##############################
@@ -66,14 +67,15 @@ proc nth_pass {n} {
     ##############################
     #Compile TOP LEFT
     set temp_top Silago_top_left_corner
-    analyze -format vhdl -lib WORK {"${SOURCE_DIR}/mtrf/${temp_top}.vhd"}
+    puts "${temp_top}"
+    analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
     elaborate ${temp_top}
     current_design ${temp_top}
     link
     uniquify
-    source ${SYN_DIR}/constraints.sdc
+    source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
-        source ${DB_DIR}/${temp_top}_${prev_n}.wscr
+        source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
     }
     compile
     ##############################
@@ -81,70 +83,75 @@ proc nth_pass {n} {
     ##############################
     #Compile TOP
     set temp_top Silago_top
-    analyze -format vhdl -lib WORK {"${SOURCE_DIR}/mtrf/${temp_top}.vhd"}
+    puts "${temp_top}"
+    analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
     elaborate ${temp_top}
     current_design ${temp_top}
     link
     uniquify
-    source ${SYN_DIR}/constraints.sdc
+    source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
-        source ${DB_DIR}/${temp_top}_${prev_n}.wscr
+        source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
     }
     compile
     ##############################
     ##############################
     #Compile TOP RIGHT
     set temp_top Silago_right_corner
-    analyze -format vhdl -lib WORK {"${SOURCE_DIR}/mtrf/${temp_top}.vhd"}
+    puts "${temp_top}"
+    analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
     elaborate ${temp_top}
     current_design ${temp_top}
     link
     uniquify
-    source ${SYN_DIR}/constraints.sdc
+    source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
-        source ${DB_DIR}/${temp_top}_${prev_n}.wscr
+        source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
     }
     compile
     ##############################
     ##############################
     #Compile TOP
     set temp_top Silago_bot_left_corner
-    analyze -format vhdl -lib WORK {"${SOURCE_DIR}/mtrf/${temp_top}.vhd"}
+    puts "${temp_top}"
+    analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
     elaborate ${temp_top}
     current_design ${temp_top}
     link
     uniquify
-    source ${SYN_DIR}/constraints.sdc
+    source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
-        source ${DB_DIR}/${temp_top}_${prev_n}.wscr
+        source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
     }
     compile
     ##############################
     ##############################
     #Compile TOP
     set temp_top Silago_bot
-    analyze -format vhdl -lib WORK {"${SOURCE_DIR}/mtrf/${temp_top}.vhd"}
+    puts "${temp_top}"
+    analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
     elaborate ${temp_top}
     current_design ${temp_top}
     link
     uniquify
-    source ${SYN_DIR}/constraints.sdc
+    source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
-        source ${DB_DIR}/${temp_top}_${prev_n}.wscr
+        source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
     }
     compile
     ##############################
     ##############################
     #Compile TOP
     set temp_top Silago_bot_right_corner
-    analyze -format vhdl -lib WORK {"${SOURCE_DIR}/mtrf/${temp_top}.vhd"}
+    puts "${temp_top}"
+    analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
     elaborate ${temp_top}
     current_design ${temp_top}
     link
     uniquify
-    source ${SYN_DIR}/constraints.sdc
+    source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
-        source ${DB_DIR}/${temp_top}_${prev_n}.wscr
+        source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
     }
     compile
     ##############################
@@ -152,12 +159,13 @@ proc nth_pass {n} {
     ##############################
     #Compile TOP
     set temp_top drra_wrapper
-    analyze -format vhdl -lib WORK {"${SOURCE_DIR}/mtrf/${temp_top}.vhd"}
+    puts "${temp_top}"
+    analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
     elaborate ${temp_top}
     current_design ${temp_top}
     link
     uniquify
-    source ${SYN_DIR}/constraints.sdc
+    source "${SYN_DIR}/constraints.sdc"
 
     #LAST ONE DOESNT HAVE A COMPILE BEFORE WE NEED TO SET THE DO NOT TOUCH
     ##############################
@@ -183,39 +191,40 @@ proc nth_pass {n} {
 
     set tmp_top silego
     current_design ${tmp_top}
-    write_script > ${DB_DIR}/${temp_top}_${n}.wscr
+    write_script > "${DB_DIR}/${temp_top}_${n}.wscr"
 
     set tmp_top Silago_top_left_corner
     current_design ${tmp_top}
-    write_script > ${DB_DIR}/${temp_top}_${n}.wscr
+    write_script > "${DB_DIR}/${temp_top}_${n}.wscr"
 
     set tmp_top  Silago_top
     current_design ${tmp_top}
-    write_script > ${DB_DIR}/${temp_top}_${n}.wscr
+    write_script > "${DB_DIR}/${temp_top}_${n}.wscr"
 
     set tmp_top  Silago_top_right_corner
     current_design ${tmp_top}
-    write_script > ${DB_DIR}/${temp_top}_${n}.wscr
+    write_script > "${DB_DIR}/${temp_top}_${n}.wscr"
 
     set tmp_top Silago_bot_left_corner
     current_design ${tmp_top}
-    write_script > ${DB_DIR}/${temp_top}_${n}.wscr
+    write_script > "${DB_DIR}/${temp_top}_${n}.wscr"
 
     set tmp_top  Silago_bot
     current_design ${tmp_top}
-    write_script > ${DB_DIR}/${temp_top}_${n}.wscr
+    write_script > "${DB_DIR}/${temp_top}_${n}.wscr"
 
     set tmp_top  Silago_bot_right_corner
     current_design ${tmp_top}
-    write_script > ${DB_DIR}/${temp_top}_${n}.wscr
+    write_script > "${DB_DIR}/${temp_top}_${n}.wscr"
 
 }
 
 puts "First pass"
 nth_pass 1
+puts "Second pass"
 nth_pass 2
 current_design drra_wrapper
-report_power > ${SYN_DIR}/rpt/area.txt
-report_power > ${SYN_DIR}/rpt/power.txt
-report_timing > ${SYN_DIR}/rpt/timing.txt
-write_file -format verilog -hier -output ${DB_DIR}/parallel_fir.v
+report_power > "${SYN_DIR}/rpt/area.txt"
+report_power > "${SYN_DIR}/rpt/power.txt"
+report_timing > "${SYN_DIR}/rpt/timing.txt"
+write_file -format verilog -hier -output "${DB_DIR}/parallel_fir.v"

@@ -48,7 +48,7 @@ proc nth_pass {n} {
     #Then the design components
     set temp_top silego
     puts "${temp_top}"
-    set hierarchy_files [split [read [open "${SOURCE_DIR}/${silego}_hierarchy.txt" r]] "\n"]
+    set hierarchy_files [split [read [open "${SOURCE_DIR}/${temp_top}_hierarchy.txt" r]] "\n"]
     foreach filename [lrange ${hierarchy_files} 0 end-1] {
         puts "${filename}"
         analyze -format VHDL -lib WORK "${SOURCE_DIR}/${filename}"
@@ -191,31 +191,31 @@ proc nth_pass {n} {
 
     set tmp_top silego
     current_design ${tmp_top}
-    write_script > "${DB_DIR}/${temp_top}_${n}.wscr"
+    write_script > "${DB_DIR}/${tmp_top}_${n}.wscr"
 
     set tmp_top Silago_top_left_corner
     current_design ${tmp_top}
-    write_script > "${DB_DIR}/${temp_top}_${n}.wscr"
+    write_script > "${DB_DIR}/${tmp_top}_${n}.wscr"
 
     set tmp_top  Silago_top
     current_design ${tmp_top}
-    write_script > "${DB_DIR}/${temp_top}_${n}.wscr"
+    write_script > "${DB_DIR}/${tmp_top}_${n}.wscr"
 
     set tmp_top  Silago_top_right_corner
     current_design ${tmp_top}
-    write_script > "${DB_DIR}/${temp_top}_${n}.wscr"
+    write_script > "${DB_DIR}/${tmp_top}_${n}.wscr"
 
     set tmp_top Silago_bot_left_corner
     current_design ${tmp_top}
-    write_script > "${DB_DIR}/${temp_top}_${n}.wscr"
+    write_script > "${DB_DIR}/${tmp_top}_${n}.wscr"
 
     set tmp_top  Silago_bot
     current_design ${tmp_top}
-    write_script > "${DB_DIR}/${temp_top}_${n}.wscr"
+    write_script > "${DB_DIR}/${tmp_top}_${n}.wscr"
 
     set tmp_top  Silago_bot_right_corner
     current_design ${tmp_top}
-    write_script > "${DB_DIR}/${temp_top}_${n}.wscr"
+    write_script > "${DB_DIR}/${tmp_top}_${n}.wscr"
 
 }
 

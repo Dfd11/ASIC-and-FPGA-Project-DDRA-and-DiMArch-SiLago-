@@ -31,10 +31,10 @@
 
 
 #DFD Need to check it the source file is correct
-variable SOURCE_DIR ../rtl
+set SOURCE_DIR ../rtl
 
-variable DB_DIR ../db
-variable SYN_DIR ../syn
+set DB_DIR ../db
+set SYN_DIR ../syn
 
 #/* compile each subblock independently */
 remove_design -all
@@ -44,10 +44,11 @@ source "${SYN_DIR}/synopsys_dc.setup"
 
 proc nth_pass {n} {
     set prev_n [expr {$n - 1}]
+    global SOURCE_DIR DB_DIR SYN_DIR
     ##############################
     #Then the design components
     set temp_top silego
-    puts "${temp_top}"
+    puts "INFO: Starting ${temp_top}"
     set hierarchy_files [split [read [open "${SOURCE_DIR}/${temp_top}_hierarchy.txt" r]] "\n"]
     foreach filename [lrange ${hierarchy_files} 0 end-1] {
         puts "${filename}"
@@ -62,12 +63,13 @@ proc nth_pass {n} {
         source "${DB_DIR}/silego_${prev_n}.wscr"
     }
     compile
+    dont_touch silego true
     ##############################
     
     ##############################
     #Compile TOP LEFT
     set temp_top Silago_top_left_corner
-    puts "${temp_top}"
+    puts "INFO: Starting ${temp_top}"
     analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
     elaborate ${temp_top}
     current_design ${temp_top}
@@ -78,12 +80,13 @@ proc nth_pass {n} {
         source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
     }
     compile
+    dont_touch Silago_top_left_corner true
     ##############################
 
     ##############################
     #Compile TOP
     set temp_top Silago_top
-    puts "${temp_top}"
+    puts "INFO: Starting ${temp_top}"
     analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
     elaborate ${temp_top}
     current_design ${temp_top}
@@ -94,11 +97,12 @@ proc nth_pass {n} {
         source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
     }
     compile
+    dont_touch Silago_top true
     ##############################
     ##############################
     #Compile TOP RIGHT
-    set temp_top Silago_right_corner
-    puts "${temp_top}"
+    set temp_top Silago_top_right_corner
+    puts "INFO: Starting ${temp_top}"
     analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
     elaborate ${temp_top}
     current_design ${temp_top}
@@ -109,11 +113,12 @@ proc nth_pass {n} {
         source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
     }
     compile
+    dont_touch Silago_top_right_corner true
     ##############################
     ##############################
     #Compile TOP
     set temp_top Silago_bot_left_corner
-    puts "${temp_top}"
+    puts "INFO: Starting ${temp_top}"
     analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
     elaborate ${temp_top}
     current_design ${temp_top}
@@ -124,11 +129,12 @@ proc nth_pass {n} {
         source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
     }
     compile
+    dont_touch Silago_bot_left_corner true
     ##############################
     ##############################
     #Compile TOP
     set temp_top Silago_bot
-    puts "${temp_top}"
+    puts "INFO: Starting ${temp_top}"
     analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
     elaborate ${temp_top}
     current_design ${temp_top}
@@ -139,11 +145,12 @@ proc nth_pass {n} {
         source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
     }
     compile
+    dont_touch Silago_bot true
     ##############################
     ##############################
     #Compile TOP
     set temp_top Silago_bot_right_corner
-    puts "${temp_top}"
+    puts "INFO: Starting ${temp_top}"
     analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
     elaborate ${temp_top}
     current_design ${temp_top}
@@ -154,17 +161,18 @@ proc nth_pass {n} {
         source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
     }
     compile
+    dont_touch Silago_bot_right_corner true
     ##############################
 
     ##############################
     #Compile TOP
     set temp_top drra_wrapper
-    puts "${temp_top}"
+    puts "INFO: Starting ${temp_top}"
     analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
     elaborate ${temp_top}
     current_design ${temp_top}
     link
-    uniquify
+    #uniquify
     source "${SYN_DIR}/constraints.sdc"
 
     #LAST ONE DOESNT HAVE A COMPILE BEFORE WE NEED TO SET THE DO NOT TOUCH
@@ -187,7 +195,7 @@ proc nth_pass {n} {
     report_power
     report_timing
     report_constraint
-    characterize -constraint {SILEGO_cell Silago_top_l_corner_inst Silago_top_inst Silago_top_r_corner_inst Silago_bot_l_corner_inst Silago_bot_inst Silago_bot_r_corner_inst}
+    characterize -constraint {Silago_top_r_corner_inst_7_0/SILEGO_cell Silago_top_r_corner_inst_7_0 Silago_top_l_corner_inst_0_0 Silago_top_inst_1_0 Silago_bot_r_corner_inst_7_0 Silago_bot_l_corner_inst_0_0 Silago_bot_inst_1_1 }
 
     set tmp_top silego
     current_design ${tmp_top}
@@ -224,7 +232,7 @@ nth_pass 1
 puts "Second pass"
 nth_pass 2
 current_design drra_wrapper
-report_power > "${SYN_DIR}/rpt/area.txt"
+report_area > "${SYN_DIR}/rpt/area.txt"
 report_power > "${SYN_DIR}/rpt/power.txt"
 report_timing > "${SYN_DIR}/rpt/timing.txt"
-write_file -format verilog -hier -output "${DB_DIR}/parallel_fir.v"
+write_file -format verilog -hier -output "${DB_DIR}/drra_wrapper.v"

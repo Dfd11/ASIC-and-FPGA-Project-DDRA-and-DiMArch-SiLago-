@@ -2,6 +2,7 @@
 source ../phy/scr/global_variables.tcl
 puts "INFO_DFD:Done with Global Variables"
 #2. source design variables
+source ../phy/scr/design_variables.tcl
 set_multi_cpu_usage -local_cpu ${NUM_CPUS} -cpu_per_remote_host 1 -remote_host 0 -keep_license true
 set_distributed_hosts -local
 puts "INFO_DFD:Done with Local Variables"

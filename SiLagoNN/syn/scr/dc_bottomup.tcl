@@ -33,9 +33,11 @@
 #DFD Need to check it the source file is correct
 set SOURCE_DIR ../rtl
 
-set DB_DIR ../db
+set DB_DIR ../syn/db
 set SYN_DIR ../syn
 
+file mkdir ../syn/rpt
+file mkdir ../syn/db
 #/* compile each subblock independently */
 remove_design -all
 
@@ -58,6 +60,7 @@ proc nth_pass {n} {
     current_design silego
     link
     uniquify
+    set_load 0.13 [all_outputs]
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
         source "${DB_DIR}/silego_${prev_n}.wscr"

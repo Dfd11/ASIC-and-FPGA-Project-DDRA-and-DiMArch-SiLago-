@@ -34,9 +34,11 @@ source ../syn/synopsys_dc.setup
 #Directory variables
 set SOURCE_DIR ../rtl;                          # source directory with the rtl 
 set SYN_DIR ../syn;                             # synthesis directory
-set OUT_DIR ../db;                          # output directory for output files: netlist, sdf sdc.
+set OUT_DIR ../syn/db;                          # output directory for output files: netlist, sdf sdc.
 set REPORT_DIR ../syn/rpt;                      # report directory for synthesis reports on timing and area
 
+file mkdir ../syn/rpt
+file mkdir ../syn/db
 source ${SYN_DIR}/synopsys_dc.setup
 
 set TOP_NAME drra_wrapper
@@ -63,7 +65,7 @@ link
 #set_wire_load_mode segmented
 #set_wire_load_model -name TSMC8K_Lowk_Aggresive
 #set_operating_condition NCCOM
-
+set_load 0.13 [all_outputs]
 source ${SYN_DIR}/constraints.sdc;
 
 compile -map_effort medium

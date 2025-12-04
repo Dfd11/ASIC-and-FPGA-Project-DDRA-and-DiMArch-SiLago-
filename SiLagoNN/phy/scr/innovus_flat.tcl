@@ -14,7 +14,6 @@ assign_io_pins
 #CTS
 ccopt_design
 #Route design
-assign_io_pins
 route_design
 write_db ../phy/db/parallel_fir.dat
 write_netlist ../phy/db/parallel_fir.v

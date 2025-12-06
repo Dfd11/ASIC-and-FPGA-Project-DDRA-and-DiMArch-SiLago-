@@ -15,6 +15,6 @@ assign_io_pins
 ccopt_design
 #Route design
 route_design
-write_db ../phy/db/parallel_fir.dat
-write_netlist ../phy/db/parallel_fir.v
+write_db ../phy/db/drra_wrapper.dat
+write_netlist ../phy/db/drra_wrapper.v
 report_power

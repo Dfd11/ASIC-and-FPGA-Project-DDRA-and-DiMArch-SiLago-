@@ -31,13 +31,13 @@
 
 
 #DFD Need to check it the source file is correct
-file mkdir ../syn/rpt
-file mkdir ../syn/db
 set SOURCE_DIR ../rtl
 
 set DB_DIR ../syn/db
 set SYN_DIR ../syn
 
+file mkdir ../syn/rpt
+file mkdir ../syn/db
 #/* compile each subblock independently */
 remove_design -all
 

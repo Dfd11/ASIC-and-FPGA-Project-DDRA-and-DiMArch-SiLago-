@@ -60,7 +60,6 @@ proc nth_pass {n} {
     current_design silego
     link
     uniquify
-    set_load 0.13 [all_outputs]
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
         source "${DB_DIR}/silego_${prev_n}.wscr"
@@ -176,6 +175,7 @@ proc nth_pass {n} {
     current_design ${temp_top}
     link
     #uniquify
+    set_load 0.13 [all_outputs]
     source "${SYN_DIR}/constraints.sdc"
 
     #LAST ONE DOESNT HAVE A COMPILE BEFORE WE NEED TO SET THE DO NOT TOUCH

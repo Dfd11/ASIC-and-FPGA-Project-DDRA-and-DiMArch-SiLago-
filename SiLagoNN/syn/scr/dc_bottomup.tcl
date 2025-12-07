@@ -35,6 +35,7 @@ set SOURCE_DIR ../rtl
 
 set DB_DIR ../syn/db
 set SYN_DIR ../syn
+set OUT_DIR ../syn/db
 
 file mkdir ../syn/rpt
 file mkdir ../syn/db
@@ -238,4 +239,12 @@ current_design drra_wrapper
 report_area > "${SYN_DIR}/rpt/area.txt"
 report_power > "${SYN_DIR}/rpt/power.txt"
 report_timing > "${SYN_DIR}/rpt/timing.txt"
-write_file -format verilog -hier -output "${DB_DIR}/drra_wrapper.v"
+change_names -rules verilog -hierarchy
+# Export netlist (Explicitly naming it .v)
+write_file -format verilog -hierarchy -output ${OUT_DIR}/${current_design}.v
+
+# Export Binary (Optional, for Design Compiler debug)
+write_file -format ddc -hierarchy -output ${OUT_DIR}/${current_design}.ddc
+
+# Export SDC (Crucial for ccopt_design in Innovus!)
+write_sdc ${OUT_DIR}/${current_design}.sdc

@@ -13,18 +13,18 @@ puts "INFO_DFD:Doing Power Planning"
 source ../phy/scr/power_planning.tcl
 #Place
 puts "INFO_DFD:Doing Parition Creation"
-source ../phy/scr/partition.tcl
+#source ../phy/scr/partition.tcl
 
 puts "INFO_DFD:Doing Place and Route Parition "
-source ../phy/scr/pnr_partition.sh
+#source ../phy/scr/pnr_partition_batch.tcl.
 
 puts "INFO_DFD:Doing Place and Route Top"
 #CTS
-source ../phy/scr/pnr_top.tcl
+#source ../phy/scr/pnr_top.tcl
 puts "INFO_DFD:Doing Assembly Design"
-source ../phy/scr/assembly_design.tcl
+#source ../phy/scr/assembly_design.tcl
 
 puts "INFO_DFD:Doing Writting Design"
-write_db ../phy/db/drra_wrapper.dat
-write_netlist ../phy/db/drra_wrapper.v
-report_power
+#write_db ../phy/db/drra_wrapper.dat
+#write_netlist ../phy/db/drra_wrapper.v
+#report_power

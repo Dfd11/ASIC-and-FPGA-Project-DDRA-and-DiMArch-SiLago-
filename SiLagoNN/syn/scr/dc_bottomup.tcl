@@ -60,7 +60,7 @@ proc nth_pass {n} {
     elaborate silego
     current_design silego
     link
-    uniquify
+    #uniquify
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
         source "${DB_DIR}/silego_${prev_n}.wscr"
@@ -77,7 +77,7 @@ proc nth_pass {n} {
     elaborate ${temp_top}
     current_design ${temp_top}
     link
-    uniquify
+    #uniquify
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
         source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
@@ -94,7 +94,7 @@ proc nth_pass {n} {
     elaborate ${temp_top}
     current_design ${temp_top}
     link
-    uniquify
+    #uniquify
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
         source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
@@ -110,7 +110,7 @@ proc nth_pass {n} {
     elaborate ${temp_top}
     current_design ${temp_top}
     link
-    uniquify
+    #uniquify
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
         source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
@@ -126,7 +126,7 @@ proc nth_pass {n} {
     elaborate ${temp_top}
     current_design ${temp_top}
     link
-    uniquify
+    #uniquify
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
         source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
@@ -142,7 +142,7 @@ proc nth_pass {n} {
     elaborate ${temp_top}
     current_design ${temp_top}
     link
-    uniquify
+    #uniquify
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
         source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
@@ -158,7 +158,7 @@ proc nth_pass {n} {
     elaborate ${temp_top}
     current_design ${temp_top}
     link
-    uniquify
+    #uniquify
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
         source "${DB_DIR}/${temp_top}_${prev_n}.wscr"
@@ -199,7 +199,7 @@ proc nth_pass {n} {
     report_power
     report_timing
     report_constraint
-    characterize -constraint {Silago_top_r_corner_inst_7_0/SILEGO_cell Silago_top_r_corner_inst_7_0 Silago_top_l_corner_inst_0_0 Silago_top_inst_1_0 Silago_bot_r_corner_inst_7_0 Silago_bot_l_corner_inst_0_0 Silago_bot_inst_1_1 }
+    characterize -constraint {Silago_top_r_corner_inst_7_0/SILEGO_cell Silago_top_r_corner_inst_7_0 Silago_top_l_corner_inst_0_0 Silago_top_inst_1_0 Silago_bot_r_corner_inst_7_1 Silago_bot_l_corner_inst_0_1 Silago_bot_inst_1_1 }
 
     set tmp_top silego
     current_design ${tmp_top}
@@ -239,6 +239,8 @@ current_design drra_wrapper
 report_area > "${SYN_DIR}/rpt/area.txt"
 report_power > "${SYN_DIR}/rpt/power.txt"
 report_timing > "${SYN_DIR}/rpt/timing.txt"
+
+
 change_names -rules verilog -hierarchy
 # Export netlist (Explicitly naming it .v)
 write_file -format verilog -hierarchy -output ${OUT_DIR}/${current_design}.v

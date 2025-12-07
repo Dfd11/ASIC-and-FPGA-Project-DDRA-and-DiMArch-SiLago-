@@ -5,3 +5,15 @@
 #6. route
 #7. write the partition db
 #8. write ilm
+#cd into the specific partition directory e.g. 
+cd ../phy/db/part/FSM.enc.dat/
+read_db .
+
+place_design
+ccopt_design
+route_design
+
+write_db ./pnr/
+
+#cd into the partition directory and write the ilm
+write_ilm 

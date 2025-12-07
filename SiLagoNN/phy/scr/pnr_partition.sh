@@ -15,6 +15,6 @@ do
 	rm -rf pnr 
 	mkdir pnr 
 	nohup innovus -stylus -no_gui -batch -files ../../../scr/pnr_partition.tcl -log "../../../../log/pnr_${filename}_${TIMESTAMP}.log ../../../../log/pnr_part_${filename}_${TIMESTAMP}.cmd ../../../../log/pnr_part_${filename}_${TIMESTAMP}.logv" &
-	cd ../../../../exe
+	cd "../../../../in"
 done
 

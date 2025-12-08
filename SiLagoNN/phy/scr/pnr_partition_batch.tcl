@@ -56,5 +56,5 @@ foreach partition_path $partition_list {
         puts "WARNING: Directory $work_dir does not exist."
     }
 }
-
+cd $orig_dir
 puts "All partition jobs have been submitted."

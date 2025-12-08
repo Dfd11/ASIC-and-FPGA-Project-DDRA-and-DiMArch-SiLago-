@@ -4,7 +4,8 @@ file mkdir ../phy/rpt
 
 #Reading the design
 puts "INFO_DFD:Doing Read Design"
-source ../phy/scr/read_design_hier.tcl
+source ../phy/scr/design_variables.tcl
+source ../phy/scr/read_design.tcl
 #Floorplan
 puts "INFO_DFD:Doing Floorplan"
 source ../phy/scr/floorplan_constrained.tcl
@@ -13,7 +14,7 @@ puts "INFO_DFD:Doing Power Planning"
 source ../phy/scr/power_planning.tcl
 #Place
 puts "INFO_DFD:Doing Parition Creation"
-#source ../phy/scr/partition.tcl
+source ../phy/scr/partition.tcl
 
 puts "INFO_DFD:Doing Place and Route Parition "
 #source ../phy/scr/pnr_partition_batch.tcl.

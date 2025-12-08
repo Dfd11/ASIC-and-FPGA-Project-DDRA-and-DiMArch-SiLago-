@@ -1,8 +1,8 @@
-source ../phy/scr/global_variables.tcl
-source ../phy/scr/design_variables.tcl
+#source ../phy/scr/global_variables.tcl
+#source ../phy/scr/design_variables.tcl
 
 cd ../phy/db/part
-read_db ${TOP_NAME}
+#read_db ${TOP_NAME}
 
 foreach module $partition_module_list {
 	#1. read ilm master partitions

@@ -1,0 +1,43 @@
+Warning: Unable to resolve reference 'data_selector_7' in 'Silago_top_left_corner'. (LINK-5)
+Warning: Unable to resolve reference 'bus_selector_7' in 'Silago_top_left_corner'. (LINK-5)
+Warning: Unable to resolve reference 'silego_15' in 'Silago_top_left_corner'. (LINK-5)
+Warning: Unable to resolve reference 'addr_assign_14' in 'Silago_bot_left_corner'. (LINK-5)
+Warning: Unable to resolve reference 'silego_14' in 'Silago_bot_left_corner'. (LINK-5)
+Warning: Unable to resolve reference 'data_selector_0' in 'Silago_top_right_corner'. (LINK-5)
+Warning: Unable to resolve reference 'bus_selector_0' in 'Silago_top_right_corner'. (LINK-5)
+Warning: Unable to resolve reference 'addr_assign_1' in 'Silago_top_right_corner'. (LINK-5)
+Warning: Unable to resolve reference 'silego_1' in 'Silago_top_right_corner'. (LINK-5)
+Warning: Unable to resolve reference 'addr_assign_0' in 'Silago_bot_right_corner'. (LINK-5)
+Warning: Unable to resolve reference 'silego_0' in 'Silago_bot_right_corner'. (LINK-5)
+ 
+****************************************
+Report : area
+Design : drra_wrapper
+Version: V-2023.12-SP4
+Date   : Sat Dec 20 11:49:03 2025
+****************************************
+
+Information: Updating design information... (UID-85)
+Warning: Design 'drra_wrapper' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Library(s) Used:
+
+    GF22FDX_SC8T_104CPP_BASE_CSC28L_FFG_0P72V_0P00V_0P00V_0P00V_M40C (File: /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs_db/GF22FDX_SC8T_104CPP_BASE_CSC28L_FFG_0P72V_0P00V_0P00V_0P00V_M40C_ccs.db)
+
+Number of ports:                       249582
+Number of nets:                        740806
+Number of cells:                       487139
+Number of combinational cells:         426066
+Number of sequential cells:             58560
+Number of macros/black boxes:               0
+Number of buf/inv:                     106984
+Number of references:                      17
+
+Combinational area:             169680.941332
+Buf/Inv area:                    16542.023725
+Noncombinational area:           98717.865517
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                268398.806849
+Total area:                 undefined
+1

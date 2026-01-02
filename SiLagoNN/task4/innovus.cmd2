@@ -1,0 +1,180 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sun Dec 28 20:39:32 2025                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.19-s058_1 (64bit) 04/04/2024 09:59 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.19-s058_1 NR231113-0413/21_19-UB (database version 18.20.605) {superthreading v2.17}
+#@(#)CDS: AAE 21.19-s004 (64bit) 04/04/2024 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.19-s010_1 () Mar 27 2024 01:55:37 ( )
+#@(#)CDS: SYNTECH 21.19-s002_1 () Sep  6 2023 22:17:00 ( )
+#@(#)CDS: CPE v21.19-s026
+#@(#)CDS: IQuantus/TQuantus 21.1.1-s966 (64bit) Wed Mar 8 10:22:20 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+
+delete_selected_from_floorplan
+#@ source run_flat.tcl
+ls
+pwd
+#@ source ../phy
+#@ Begin verbose source (pre): source ../phy
+#@ source ../phy/scr/run_flat.tcl 
+#@ Begin verbose source (pre): source ../phy/scr/run_flat.tcl 
+#@ source ../phy/scr/FLAT_read_design.tcl
+#@ Begin verbose source ../phy/scr/FLAT_read_design.tcl (pre)
+#@ source ../phy/scr/FLAT_global_variables.tcl
+#@ Begin verbose source ../phy/scr/FLAT_global_variables.tcl (pre)
+set NUM_CPUS 8
+set TOP_NAME FLAT_drra_wrapper
+set OUTPUT_DIR "../phy/db"
+set RPT_DIR    "../phy/flat_rpt"
+set SCR_DIR    "../phy/scr"
+set PART_DIR   "../phy/db/part/"
+set SRC_DIR    "../syn/db/"
+set STDC_CCS_DIR "/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs"
+set TECH_LEF_DIR  "/opt/pdk/gf22/V1.0_4.1/PlaceRoute/Innovus/Techfiles/10M_2Mx_4Cx_2Bx_2Jx_LB"
+set STDC_LEF_DIR  "/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/lef"
+set LEF_FILE "${TECH_LEF_DIR}/22FDSOI_10M_2Mx_4Cx_2Bx_2Jx_LB_104cpp_tech.lef \
+        ${STDC_LEF_DIR}/GF22FDX_SC8T_104CPP_BASE_CSC28L.lef"
+set STDC_QRC_DIR  "/opt/pdk/gf22/V1.0_4.1/PEX/QRC/10M_2Mx_4Cx_2Bx_2Jx_LBthick"
+set OP_COD_LIB_BC "GF22FDX_SC8T_104CPP_BASE_CSC28L_FFG_0P72V_0P00V_0P00V_0P00V_M40C"
+set OP_COD_LIB_TC "GF22FDX_SC8T_104CPP_BASE_CSC28L_TT_0P80V_0P00V_0P00V_0P00V_25C"
+set OP_COD_LIB_WC "GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C"
+set OP_COD_LIB_SRAM_BC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_TT_0P800V_0P800V_0P000V_0P000V_025C"
+set OP_COD_LIB_SRAM_TC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_TT_0P800V_0P800V_0P000V_0P000V_025C"
+set OP_COD_LIB_SRAM_WC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_SSG_0P720V_0P720V_0P000V_0P000V_125C"
+set OP_COD_LIB_IO_BC "dwc_io_gf22fdx_1p8v_gpio_i_ull_ffg0p945v1p320vm40c_funccmin"
+set OP_COD_LIB_IO_TC "dwc_io_gf22fdx_1p8v_gpio_i_ull_tt0p800v1p500v25c"
+set OP_COD_LIB_IO_WC "dwc_io_gf22fdx_1p8v_gpio_i_ull_ssg0p720v1p620v125c_funccmax"
+set LIB_FILES_BC "${STDC_CCS_DIR}/${OP_COD_LIB_BC}_ccs.lib.gz"
+set LIB_FILES_TC "${STDC_CCS_DIR}/${OP_COD_LIB_TC}_ccs.lib.gz"
+set LIB_FILES_WC "${STDC_CCS_DIR}/${OP_COD_LIB_WC}_ccs.lib.gz"
+set OP_COD_BC "FFG_0P72V_0P00V_0P00V_0P00V_M40C"
+set OP_COD_TC "TT_0P80V_0P00V_0P00V_0P00V_25C"
+set OP_COD_WC "SSG_0P72V_0P00V_0P00V_0P00V_125C"
+set OP_COD_SRAM_BC "TT_0P800V_0P800V_0P000V_0P000V_025C"
+set OP_COD_SRAM_TC "TT_0P800V_0P800V_0P000V_0P000V_025C"
+set OP_COD_SRAM_WC "SSG_0P720V_0P720V_0P000V_0P000V_125C"
+set OP_COD_IO_BC "ffg0p945v1p320vm40c"
+set OP_COD_IO_TC "TT_0P8_1P5_25"
+set OP_COD_IO_WC "SSG_0P59_1P08_125"
+set QRC_FILE_BC "${STDC_QRC_DIR}/FuncRCminDP/qrcTechFile"
+set QRC_FILE_TC "${STDC_QRC_DIR}/nominal/qrcTechFile"
+set QRC_FILE_WC "${STDC_QRC_DIR}/FuncRCmaxDP/qrcTechFile"
+set MMMC_FILE         "${SCR_DIR}/mmmc.tcl"
+set NETLIST_FILE       "${SRC_DIR}/${TOP_NAME}.v"
+set SDC_FILES          "${SRC_DIR}/${TOP_NAME}.sdc"
+#@ End verbose source ../phy/scr/FLAT_global_variables.tcl
+puts "INFO_DFD:Done with Global Variables"
+set_multi_cpu_usage -local_cpu ${NUM_CPUS} -cpu_per_remote_host 1 -remote_host 0 -keep_license true
+set_distributed_hosts -local
+puts "INFO_DFD:Done with Local Variables"
+set_db init_power_nets {VDD}
+set_db init_ground_nets {VSS}
+puts "INFO_DFD:Reading MMC File"
+read_mmmc ${MMMC_FILE}
+#@ Begin verbose source ../phy/scr/mmmc.tcl (pre)
+create_library_set -name LIBSET_TC -timing [list $LIB_FILES_TC]
+create_library_set -name LIBSET_BC -timing [list $LIB_FILES_BC]
+create_library_set -name LIBSET_WC -timing [list $LIB_FILES_WC]
+create_rc_corner \
+    -name rc_best \
+    -pre_route_res 1 \
+    -post_route_res 1 \
+    -pre_route_cap 1 \
+    -post_route_cap 1 \
+    -post_route_cross_cap 1 \
+    -post_route_clock_res 0 \
+    -post_route_clock_cap 0 \
+    -qrc_tech $QRC_FILE_BC 
+create_rc_corner -name rc_typ \
+    -pre_route_res 1 \
+    -post_route_res 1 \
+    -pre_route_cap 1 \
+    -post_route_cap 1 \
+    -post_route_cross_cap 1 \
+    -post_route_clock_res 0 \
+    -post_route_clock_cap 0 \
+    -qrc_tech $QRC_FILE_TC 
+create_rc_corner -name rc_worst \
+    -pre_route_res 1 \
+    -post_route_res 1 \
+    -pre_route_cap 1 \
+    -post_route_cap 1 \
+    -post_route_cross_cap 1 \
+    -post_route_clock_res 0 \
+    -post_route_clock_cap 0 \
+    -qrc_tech $QRC_FILE_WC
+create_timing_condition \
+    -name cond_best \
+    -library_set LIBSET_BC \
+    -opcond $OP_COD_BC \
+    -opcond_library $OP_COD_LIB_BC
+create_timing_condition \
+    -name cond_typ \
+    -library_set LIBSET_TC \
+    -opcond $OP_COD_TC \
+    -opcond_library $OP_COD_LIB_TC
+create_timing_condition \
+    -name cond_worst \
+    -library_set LIBSET_WC \
+    -opcond $OP_COD_WC \
+    -opcond_library $OP_COD_LIB_WC
+create_delay_corner \
+    -name WC_dc \
+    -rc_corner rc_worst \
+    -timing_condition {cond_worst}
+create_delay_corner \
+    -name TC_dc \
+    -rc_corner rc_typ \
+    -timing_condition {cond_typ}
+create_delay_corner \
+    -name BC_dc \
+    -rc_corner rc_best \
+    -timing_condition {cond_best}
+create_constraint_mode -name functional -sdc_files $SDC_FILES
+create_analysis_view -name AVF_RCWORST -constraint_mode functional -delay_corner WC_dc
+create_analysis_view -name AVF_RCBEST  -constraint_mode functional -delay_corner BC_dc
+create_analysis_view -name AVF_RCTYP   -constraint_mode functional -delay_corner TC_dc
+set_analysis_view -setup "AVF_RCWORST" -hold "AVF_RCBEST AVF_RCTYP"
+#@ End verbose source ../phy/scr/mmmc.tcl
+puts "INFO_DFD:Reading LEF File"
+read_physical -lef ${LEF_FILE}
+puts "INFO_DFD:Reading Netlist File"
+read_netlist ${NETLIST_FILE}
+init_design
+#@ End verbose source ../phy/scr/FLAT_read_design.tcl
+#@ source ../phy/scr/FLAT_floorplan.tcl
+#@ Begin verbose source ../phy/scr/FLAT_floorplan.tcl (pre)
+create_floorplan -site SC8T_104CPP_CMOS22FDX -core_density_size 0.998681890066 0.7 10 10 10 10
+add_rings -nets {VDD VSS} -type core_rings -follow core -layer {top JB bottom JB left LB right LB} -width {top 1.5 bottom 1.5 left 1.8 right 1.8} -spacing {top 1.8 bottom 1.8 left 1.8 right 1.8} -offset {top 1.8 bottom 1.8 left 1.8 right 1.8} -center 0 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid none
+add_stripes -nets {VDD VSS} -layer LB -direction vertical -width 1.8 -spacing 1.8 -set_to_set_distance 100 -start_from left -switch_layer_over_obs false -max_same_layer_jog_length 2 -pad_core_ring_top_layer_limit LB -pad_core_ring_bottom_layer_limit M1 -block_ring_top_layer_limit LB -block_ring_bottom_layer_limit M1 -use_wire_group 0 -snap_wire_center_to_grid none
+set_db route_special_via_connect_to_shape { noshape }
+route_special -connect {block_pin pad_pin pad_ring core_pin floating_stripe} -layer_change_range { M1(1) LB(11) } -block_pin_target {nearest_target} -pad_pin_port_connect {all_port one_geom} -pad_pin_target {nearest_target} -core_pin_target {first_after_row_end} -floating_stripe_target {block_ring pad_ring ring stripe ring_pin block_pin followpin} -allow_jogging 1 -crossover_via_layer_range { M1(1) LB(11) } -nets { VDD VSS } -allow_layer_change 1 -block_pin use_lef -target_via_layer_range { M1(1) LB(11) }
+#@ End verbose source ../phy/scr/FLAT_floorplan.tcl
+place_design
+assign_io_pins
+ccopt_design
+assign_io_pins
+route_design
+write_db ${OUTPUT_DIR}/FLAT_${TOP_NAME}.dat
+write_netlist ${OUTPUT_DIR}/FLAT_${TOP_NAME}.v
+report_timing > ${RPT_DIR}/FLAT_${TOP_NAME}_timing.txt
+report_power > ${RPT_DIR}/FLAT_${TOP_NAME}_power.txt
+report_area > ${RPT_DIR}/FLAT_${TOP_NAME}_area.txt
+time_design -post_route > ${RPT_DIR}/FLAT_${TOP_NAME}_timing_postroute.txt
+#@ End verbose source: ../phy/scr/run_flat.tcl
+gui_select -point {0.04700 0.03400}
+gui_select -point {-0.00700 0.06200}
+gui_select -point {367.85300 366.09200}
+gui_select -point {366.25400 366.32900}
+gui_select -point {-349.06100 717.90700}
+add_fences -hInst Silago_top_inst_2_0
+gui_select -point {-251.24800 663.41100}
+gui_select -point {447.41400 516.69200}
+gui_select -rect {-142.25700 667.60300 -66.80100 726.29100}
+report_design -hier
+report_design
+report_instance -hier -cell Silago_top_inst_2_0
+report_summary -no_html -out_file summary_report.txt

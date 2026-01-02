@@ -1,0 +1,550 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.19-s058_1, built Thu Apr 4 09:59:17 PDT 2024
+Options:	-stylus -stylus 
+Date:		Mon Dec 29 13:05:58 2025
+Host:		il2225ht25_jacome (x86_64 w/Linux 5.15.0-164-generic) (12cores*48cpus*Intel(R) Xeon(R) CPU E7-8857 v2 @ 3.00GHz 30720KB)
+OS:		Rocky Linux 8.10 (Green Obsidian)
+
+License:
+		[13:05:58.443828] Configured Lic search path (21.01-s002): 27020@lic04.ug.kth.se:27020@lic05.ug.kth.se:3000@lic08.ug.kth.se:29000@lic06.ug.kth.se
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+
+
+**WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+Create and set the environment variable TMPDIR to /tmp/innovus_temp_247935_il2225ht25_jacome_jacome_LzjucU.
+
+Change the soft stacksize limit to 0.2%RAM (6192 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+@innovus 1> source ../phy/scr/read_design.tcl 
+#@ Begin verbose source (pre): source ../phy/scr/read_design.tcl 
+@file 1: #1. source global variables
+@file 2: source ../phy/scr/FLAT_global_variables.tcl
+#@ Begin verbose source ../phy/scr/FLAT_global_variables.tcl (pre)
+@file 1: set NUM_CPUS 8
+@file 2: #set the top name of the design
+@file 3: set TOP_NAME FLAT_drra_wrapper
+@file 4:
+@file 5: # Directories
+@file 6: set OUTPUT_DIR "../phy/db"
+@file 7: set RPT_DIR    "../phy/flat_rpt"
+@file 8: set SCR_DIR    "../phy/scr"
+@file 9: set PART_DIR   "../phy/db/part/"
+@file 10: set SRC_DIR    "../syn/db/"
+@file 11:
+@file 12: set STDC_CCS_DIR "/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs"
+@file 13: set TECH_LEF_DIR  "/opt/pdk/gf22/V1.0_4.1/PlaceRoute/Innovus/Techfiles/10M_2Mx_4Cx_2Bx_2Jx_LB"
+@file 14: set STDC_LEF_DIR  "/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/lef"
+@file 15:
+@file 16: set LEF_FILE "${TECH_LEF_DIR}/22FDSOI_10M_2Mx_4Cx_2Bx_2Jx_LB_104cpp_tech.lef \
+        ${STDC_LEF_DIR}/GF22FDX_SC8T_104CPP_BASE_CSC28L.lef"
+@file 18:
+@file 19: set STDC_QRC_DIR  "/opt/pdk/gf22/V1.0_4.1/PEX/QRC/10M_2Mx_4Cx_2Bx_2Jx_LBthick"
+@file 20:
+@file 21: set OP_COD_LIB_BC "GF22FDX_SC8T_104CPP_BASE_CSC28L_FFG_0P72V_0P00V_0P00V_0P00V_M40C"
+@file 22: set OP_COD_LIB_TC "GF22FDX_SC8T_104CPP_BASE_CSC28L_TT_0P80V_0P00V_0P00V_0P00V_25C"
+@file 23: set OP_COD_LIB_WC "GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C"
+@file 24: set OP_COD_LIB_SRAM_BC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_TT_0P800V_0P800V_0P000V_0P000V_025C"
+@file 25: set OP_COD_LIB_SRAM_TC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_TT_0P800V_0P800V_0P000V_0P000V_025C"
+@file 26: set OP_COD_LIB_SRAM_WC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_SSG_0P720V_0P720V_0P000V_0P000V_125C"
+@file 27: set OP_COD_LIB_IO_BC "dwc_io_gf22fdx_1p8v_gpio_i_ull_ffg0p945v1p320vm40c_funccmin"
+@file 28: set OP_COD_LIB_IO_TC "dwc_io_gf22fdx_1p8v_gpio_i_ull_tt0p800v1p500v25c"
+@file 29: set OP_COD_LIB_IO_WC "dwc_io_gf22fdx_1p8v_gpio_i_ull_ssg0p720v1p620v125c_funccmax"
+@file 30: set LIB_FILES_BC "${STDC_CCS_DIR}/${OP_COD_LIB_BC}_ccs.lib.gz"
+@file 31: set LIB_FILES_TC "${STDC_CCS_DIR}/${OP_COD_LIB_TC}_ccs.lib.gz"
+@file 32: set LIB_FILES_WC "${STDC_CCS_DIR}/${OP_COD_LIB_WC}_ccs.lib.gz"
+@file 33: set OP_COD_BC "FFG_0P72V_0P00V_0P00V_0P00V_M40C"
+@file 34: set OP_COD_TC "TT_0P80V_0P00V_0P00V_0P00V_25C"
+@file 35: set OP_COD_WC "SSG_0P72V_0P00V_0P00V_0P00V_125C"
+@file 36: set OP_COD_SRAM_BC "TT_0P800V_0P800V_0P000V_0P000V_025C"
+@file 37: set OP_COD_SRAM_TC "TT_0P800V_0P800V_0P000V_0P000V_025C"
+@file 38: set OP_COD_SRAM_WC "SSG_0P720V_0P720V_0P000V_0P000V_125C"
+@file 39: set OP_COD_IO_BC "ffg0p945v1p320vm40c"
+@file 40: set OP_COD_IO_TC "TT_0P8_1P5_25"
+@file 41: set OP_COD_IO_WC "SSG_0P59_1P08_125"
+@file 42: set QRC_FILE_BC "${STDC_QRC_DIR}/FuncRCminDP/qrcTechFile"
+@file 43: set QRC_FILE_TC "${STDC_QRC_DIR}/nominal/qrcTechFile"
+@file 44: set QRC_FILE_WC "${STDC_QRC_DIR}/FuncRCmaxDP/qrcTechFile"
+@file 45:
+@file 46: set MMMC_FILE         "${SCR_DIR}/mmmc.tcl"
+@file 47: set NETLIST_FILE       "${SRC_DIR}/${TOP_NAME}.v"
+@file 48: set SDC_FILES          "${SRC_DIR}/${TOP_NAME}.sdc"
+#@ End verbose source ../phy/scr/FLAT_global_variables.tcl
+@file 3: puts "INFO_DFD:Done with Global Variables"
+INFO_DFD:Done with Global Variables
+@file 4: #2. source design variables
+@@file 5: set_multi_cpu_usage -local_cpu ${NUM_CPUS} -cpu_per_remote_host 1 -remote_host 0 -keep_license true
+Setting releaseMultiCpuLicenseMode to false.
+@@file 6: set_distributed_hosts -local
+The timeout for a remote job to respond is 3600 seconds.
+Submit command for task runs will be: local
+@file 7: puts "INFO_DFD:Done with Local Variables"
+INFO_DFD:Done with Local Variables
+@file 8: #3. set vdd net
+@@file 9: set_db init_power_nets {VDD}
+@file 10: #4. set vss net
+@@file 11: set_db init_ground_nets {VSS}
+@file 12: #5. read mmmc file
+@file 13: puts "INFO_DFD:Reading MMC File"
+INFO_DFD:Reading MMC File
+@@file 14: read_mmmc ${MMMC_FILE}
+#@ Begin verbose source ../phy/scr/mmmc.tcl (pre)
+@@file 1: create_library_set -name LIBSET_TC -timing [list $LIB_FILES_TC]
+@@file 2: create_library_set -name LIBSET_BC -timing [list $LIB_FILES_BC]
+@@file 3: create_library_set -name LIBSET_WC -timing [list $LIB_FILES_WC]
+@@file 4: create_rc_corner \
+    -name rc_best \
+    -pre_route_res 1 \
+    -post_route_res 1 \
+    -pre_route_cap 1 \
+    -post_route_cap 1 \
+    -post_route_cross_cap 1 \
+    -post_route_clock_res 0 \
+    -post_route_clock_cap 0 \
+    -qrc_tech $QRC_FILE_BC 
+@@file 14: create_rc_corner -name rc_typ \
+    -pre_route_res 1 \
+    -post_route_res 1 \
+    -pre_route_cap 1 \
+    -post_route_cap 1 \
+    -post_route_cross_cap 1 \
+    -post_route_clock_res 0 \
+    -post_route_clock_cap 0 \
+    -qrc_tech $QRC_FILE_TC 
+@@file 23: create_rc_corner -name rc_worst \
+    -pre_route_res 1 \
+    -post_route_res 1 \
+    -pre_route_cap 1 \
+    -post_route_cap 1 \
+    -post_route_cross_cap 1 \
+    -post_route_clock_res 0 \
+    -post_route_clock_cap 0 \
+    -qrc_tech $QRC_FILE_WC
+@@file 32: create_timing_condition \
+    -name cond_best \
+    -library_set LIBSET_BC \
+    -opcond $OP_COD_BC \
+    -opcond_library $OP_COD_LIB_BC
+@@file 37: create_timing_condition \
+    -name cond_typ \
+    -library_set LIBSET_TC \
+    -opcond $OP_COD_TC \
+    -opcond_library $OP_COD_LIB_TC
+@@file 42: create_timing_condition \
+    -name cond_worst \
+    -library_set LIBSET_WC \
+    -opcond $OP_COD_WC \
+    -opcond_library $OP_COD_LIB_WC
+@@file 47: create_delay_corner \
+    -name WC_dc \
+    -rc_corner rc_worst \
+    -timing_condition {cond_worst}
+@@file 51: create_delay_corner \
+    -name TC_dc \
+    -rc_corner rc_typ \
+    -timing_condition {cond_typ}
+@@file 55: create_delay_corner \
+    -name BC_dc \
+    -rc_corner rc_best \
+    -timing_condition {cond_best}
+@@file 59: create_constraint_mode -name functional -sdc_files $SDC_FILES
+@@file 60: create_analysis_view -name AVF_RCWORST -constraint_mode functional -delay_corner WC_dc
+@@file 61: create_analysis_view -name AVF_RCBEST  -constraint_mode functional -delay_corner BC_dc
+@@file 62: create_analysis_view -name AVF_RCTYP   -constraint_mode functional -delay_corner TC_dc
+@@file 63: set_analysis_view -setup "AVF_RCWORST" -hold "AVF_RCBEST AVF_RCTYP"
+#@ End verbose source ../phy/scr/mmmc.tcl
+Starting library reading in 'Multi-threaded flow' (with '8' threads)
+
+Threads Configured:8
+Reading LIBSET_WC timing library /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz.
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_TAPZBX8_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_TAPX8_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_NOM1COLCAPPX1_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_NOM1COLCAPNX1_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_FILLX8_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_FILLX64_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_FILLX5_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_FILLX4_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_FILLX3_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_FILLX32_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_FILLX2_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_FILLX1_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_FILLX16_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_FILLX128_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_CONCAVEPRX9_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_CONCAVEPRX11_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_CONCAVEPLX9_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_CONCAVEPLX11_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_CONCAVENRX9_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'SC8T_CONCAVENRX11_CSC28L'. The cell will only be used for analysis. (File /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C_ccs.lib.gz)
+Message <TECHLIB-302> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+Read 959 cells in library GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C.
+Library reading multithread flow ended.
+Starting library reading in 'Multi-threaded flow' (with '8' threads)
+
+Threads Configured:8
+Reading LIBSET_BC timing library /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_FFG_0P72V_0P00V_0P00V_0P00V_M40C_ccs.lib.gz.
+Read 959 cells in library GF22FDX_SC8T_104CPP_BASE_CSC28L_FFG_0P72V_0P00V_0P00V_0P00V_M40C.
+Library reading multithread flow ended.
+@file 15: #6. read lef 
+@file 16: puts "INFO_DFD:Reading LEF File"
+INFO_DFD:Reading LEF File
+@@file 17: read_physical -lef ${LEF_FILE}
+
+Loading LEF file /opt/pdk/gf22/V1.0_4.1/PlaceRoute/Innovus/Techfiles/10M_2Mx_4Cx_2Bx_2Jx_LB/22FDSOI_10M_2Mx_4Cx_2Bx_2Jx_LB_104cpp_tech.lef ...
+
+Loading LEF file /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/lef/GF22FDX_SC8T_104CPP_BASE_CSC28L.lef ...
+**WARN: (IMPLF-378):	The spacing for cell edge type 'SC8T_104CPP_BASE_CSC_SOURCE' and 'SC8T_104CPP_BASE_CSC_SOURCE' is already defined. It will be overwritten by the new definition in LEF file '/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/lef/GF22FDX_SC8T_104CPP_BASE_CSC28L.lef'.
+If it's defined multiple times for the same pair of types, only the last one
+will be kept. Check all definitions in all LEF files to remove any duplicated
+definitions to avoid this warning message.
+**WARN: (IMPLF-378):	The spacing for cell edge type 'SC8T_104CPP_BASE_CSC_DRAIN' and 'SC8T_104CPP_BASE_CSC_SOURCE' is already defined. It will be overwritten by the new definition in LEF file '/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/lef/GF22FDX_SC8T_104CPP_BASE_CSC28L.lef'.
+If it's defined multiple times for the same pair of types, only the last one
+will be kept. Check all definitions in all LEF files to remove any duplicated
+definitions to avoid this warning message.
+**WARN: (IMPLF-378):	The spacing for cell edge type 'SC8T_104CPP_BASE_CSC_DRAIN' and 'SC8T_104CPP_BASE_CSC_DRAIN' is already defined. It will be overwritten by the new definition in LEF file '/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/lef/GF22FDX_SC8T_104CPP_BASE_CSC28L.lef'.
+If it's defined multiple times for the same pair of types, only the last one
+will be kept. Check all definitions in all LEF files to remove any duplicated
+definitions to avoid this warning message.
+**WARN: (IMPLF-378):	The spacing for cell edge type 'SC8T_104CPP_BASE_CSC_SOURCE2CPP' and 'SC8T_104CPP_BASE_CSC_SOURCE2CPP' is already defined. It will be overwritten by the new definition in LEF file '/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/lef/GF22FDX_SC8T_104CPP_BASE_CSC28L.lef'.
+If it's defined multiple times for the same pair of types, only the last one
+will be kept. Check all definitions in all LEF files to remove any duplicated
+definitions to avoid this warning message.
+**WARN: (IMPLF-378):	The spacing for cell edge type 'SC8T_104CPP_BASE_CSC_SOURCE' and 'SC8T_104CPP_BASE_CSC_SOURCE2CPP' is already defined. It will be overwritten by the new definition in LEF file '/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/lef/GF22FDX_SC8T_104CPP_BASE_CSC28L.lef'.
+If it's defined multiple times for the same pair of types, only the last one
+will be kept. Check all definitions in all LEF files to remove any duplicated
+definitions to avoid this warning message.
+**WARN: (IMPLF-378):	The spacing for cell edge type 'SC8T_104CPP_BASE_CSC_SOURCE2CPP' and 'SC8T_104CPP_BASE_CSC_DRAIN' is already defined. It will be overwritten by the new definition in LEF file '/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/lef/GF22FDX_SC8T_104CPP_BASE_CSC28L.lef'.
+If it's defined multiple times for the same pair of types, only the last one
+will be kept. Check all definitions in all LEF files to remove any duplicated
+definitions to avoid this warning message.
+Set DBUPerIGU to M1 pitch 104.
+[13:13:54.481203] Periodic Lic check successful
+[13:13:54.481227] Feature usage summary:
+[13:13:54.481232] Innovus_Impl_System
+[13:13:54.481233] Innovus_20nm_Opt
+
+This command "read_physical -lef {/opt/pdk/gf22/V1.0_4.1/PlaceRoute/Innovus/Techfiles/10M_2Mx_4Cx_2Bx_2Jx_LB/22FDSOI_10M_2Mx_4Cx_2Bx_2Jx_LB_104cpp_tech.lef ..." required an extra checkout of license invs_20nm.
+Additional license(s) checked out: 1 'Innovus_20nm_Opt' license(s)
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XOR3X8_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XOR3X4_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XOR3X2_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XOR3X1_MR_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XOR3X1_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XOR2X8_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XOR2X4_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XOR2X2_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XOR2X1_MR_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XOR2X1_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XOR2X0P5_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XNR3X8_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XNR3X4_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XNR3X2_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XNR3X1_MR_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XNR3X1_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XNR2X8_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XNR2X4_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XNR2X2_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'SC8T_XNR2X1_MR_CSC28L' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (EMS-27):	Message (IMPLF-201) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'SC8T_ANTENNAX11_CSC28L' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+@file 18: #7. read logic synthesis netlist
+@file 19: puts "INFO_DFD:Reading Netlist File"
+INFO_DFD:Reading Netlist File
+@@file 20: read_netlist ${NETLIST_FILE}
+#% Begin Load netlist data ... (date=12/29 13:13:54, mem=1038.1M)
+*** Begin netlist parsing (mem=1880.9M) ***
+Created 959 new cells from 2 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist '../syn/db//FLAT_drra_wrapper.v'
+
+*** Memory Usage v#1 (Current mem = 2272.902M, initial mem = 494.961M) ***
+*** End netlist parsing (cpu=0:00:08.1, real=0:00:08.0, mem=2272.9M) ***
+#% End Load netlist data ... (date=12/29 13:14:02, total cpu=0:00:08.2, real=0:00:09.0, peak res=1581.1M, current mem=1581.1M)
+Top level cell is drra_wrapper.
+Hooked 1918 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell drra_wrapper ...
+*** Netlist is unique.
+** info: there are 5263 modules.
+** info: there are 644666 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 2668.816M, initial mem = 494.961M) ***
+@file 21:
+@@file 22: init_design
+
+Honor LEF defined pitches for advanced node
+Start create_tracks
+Extraction setup Started 
+Initializing multi-corner RC extraction with 3 active RC Corners ...
+Captable file(s) not specified in multi-corner setup. PreRoute extraction will use technology file. For post_route extraction, default value for effort level would be 'medium' and effort level 'low' would not be allowed.
+Generating auto layer map file.
+Importing multi-corner technology file(s) for preRoute extraction...
+/opt/pdk/gf22/V1.0_4.1/PEX/QRC/10M_2Mx_4Cx_2Bx_2Jx_LBthick/FuncRCmaxDP/qrcTechFile
+/opt/pdk/gf22/V1.0_4.1/PEX/QRC/10M_2Mx_4Cx_2Bx_2Jx_LBthick/FuncRCminDP/qrcTechFile
+/opt/pdk/gf22/V1.0_4.1/PEX/QRC/10M_2Mx_4Cx_2Bx_2Jx_LBthick/nominal/qrcTechFile
+Generating auto layer map file.
+Generating auto layer map file.
+Generating auto layer map file.
+Completed (cpu: 0:00:16.4 real: 0:00:09.0)
+Set Shrink Factor to 1.00000
+Summary of Active RC-Corners : 
+ 
+ Analysis View: AVF_RCWORST
+    RC-Corner Name        : rc_worst
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+    RC-Corner Technology file: '/opt/pdk/gf22/V1.0_4.1/PEX/QRC/10M_2Mx_4Cx_2Bx_2Jx_LBthick/FuncRCmaxDP/qrcTechFile'
+ 
+ Analysis View: AVF_RCBEST
+    RC-Corner Name        : rc_best
+    RC-Corner Index       : 1
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+    RC-Corner Technology file: '/opt/pdk/gf22/V1.0_4.1/PEX/QRC/10M_2Mx_4Cx_2Bx_2Jx_LBthick/FuncRCminDP/qrcTechFile'
+ 
+ Analysis View: AVF_RCTYP
+    RC-Corner Name        : rc_typ
+    RC-Corner Index       : 2
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+    RC-Corner Technology file: '/opt/pdk/gf22/V1.0_4.1/PEX/QRC/10M_2Mx_4Cx_2Bx_2Jx_LBthick/nominal/qrcTechFile'
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+Default value for post_route extraction mode's extract_rc_effort_level (extract_rc_effort_level option of set_db) changed to 'medium'.
+*Info: initialize multi-corner CTS.
+Starting library reading in 'Multi-threaded flow' (with '8' threads)
+
+Threads Configured:8
+Reading LIBSET_TC timing library /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs/GF22FDX_SC8T_104CPP_BASE_CSC28L_TT_0P80V_0P00V_0P00V_0P00V_25C_ccs.lib.gz.
+Read 959 cells in library GF22FDX_SC8T_104CPP_BASE_CSC28L_TT_0P80V_0P00V_0P00V_0P00V_25C.
+Library reading multithread flow ended.
+Reading timing constraints file '../syn/db//FLAT_drra_wrapper.sdc' ...
+Current (total cpu=0:24:45, real=0:09:12, peak res=3063.1M, current mem=2535.2M)
+**WARN: (TCLCMD-1461):	Skipped unsupported command: set_units (File ../syn/db//FLAT_drra_wrapper.sdc, Line 8).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][255]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 9).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports' that match 'dir_north_out_array[0][255]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 9).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports or nets' that match '' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 9).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][254]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 10).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports' that match 'dir_north_out_array[0][254]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 10).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports or nets' that match '' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 10).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][253]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 11).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports' that match 'dir_north_out_array[0][253]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 11).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports or nets' that match '' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 11).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][252]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 12).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports' that match 'dir_north_out_array[0][252]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 12).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports or nets' that match '' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 12).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][251]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 13).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports' that match 'dir_north_out_array[0][251]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 13).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports or nets' that match '' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 13).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][250]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 14).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports' that match 'dir_north_out_array[0][250]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 14).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports or nets' that match '' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 14).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][249]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 15).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports' that match 'dir_north_out_array[0][249]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 15).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports or nets' that match '' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 15).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][248]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 16).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports' that match 'dir_north_out_array[0][248]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 16).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports or nets' that match '' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 16).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][247]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 17).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports' that match 'dir_north_out_array[0][247]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 17).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports or nets' that match '' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 17).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][246]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 18).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports' that match 'dir_north_out_array[0][246]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 18).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports or nets' that match '' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 18).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][245]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 19).
+
+Message <TCLCMD-917> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit. (File ../syn/db//FLAT_drra_wrapper.sdc, Line 19).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][244]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 20).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][243]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 21).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][242]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 22).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][241]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 23).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][240]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 24).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][239]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 25).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][238]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 26).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][237]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 27).
+
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'dir_north_out_array[0][236]' (File ../syn/db//FLAT_drra_wrapper.sdc, Line 28).
+
+Message <TCLCMD-513> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit. (File ../syn/db//FLAT_drra_wrapper.sdc, Line 29).
+
+INFO (CTE): Reading of timing constraints file ../syn/db//FLAT_drra_wrapper.sdc completed, with 21 Warnings and 20 Errors.
+Ending "Constraint file reading stats" (total cpu=0:00:01.2, real=0:00:02.0, peak res=2574.8M, current mem=2574.8M)
+Current (total cpu=0:24:46, real=0:09:14, peak res=3063.1M, current mem=2574.8M)
+Total number of combinational cells: 808
+Total number of sequential cells: 101
+Total number of tristate cells: 4
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 46
+List of usable buffers: SC8T_BUFX0P5_A_CSC28L SC8T_BUFX0P5_CSC28L SC8T_BUFX10_CSC28L SC8T_BUFX12_CSC28L SC8T_BUFX16_CSC28L SC8T_BUFX1P5_CSC28L SC8T_BUFX1_A_CSC28L SC8T_BUFX1_MR_CSC28L SC8T_BUFX1_CSC28L SC8T_BUFX20_CSC28L SC8T_BUFX24_CSC28L SC8T_BUFX2_CSC28L SC8T_BUFX3_CSC28L SC8T_BUFX4_MR_CSC28L SC8T_BUFX4_CSC28L SC8T_BUFX6_CSC28L SC8T_BUFX8_CSC28L SC8T_CKBUFX10_CSC28L SC8T_CKBUFX12_CSC28L SC8T_CKBUFX16_CSC28L SC8T_CKBUFX1_MR_CSC28L SC8T_CKBUFX1_CSC28L SC8T_CKBUFX20_CSC28L SC8T_CKBUFX24_CSC28L SC8T_CKBUFX2_CSC28L SC8T_CKBUFX4_CSC28L SC8T_CKBUFX6_CSC28L SC8T_CKBUFX8_CSC28L
+Total number of usable buffers: 28
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: SC8T_INVX0P5_CSC28L SC8T_INVX10_CSC28L SC8T_INVX12_CSC28L SC8T_INVX16_CSC28L SC8T_INVX1P5_CSC28L SC8T_INVX1_3CPP_CSC28L SC8T_INVX1_MR_CSC28L SC8T_INVX1_CSC28L SC8T_INVX20_CSC28L SC8T_INVX24_CSC28L SC8T_INVX2_CSC28L SC8T_INVX3_CSC28L SC8T_INVX4_CSC28L SC8T_INVX6_CSC28L SC8T_INVX8_CSC28L SC8T_CKINVX10_CSC28L SC8T_CKINVX12_CSC28L SC8T_CKINVX16_CSC28L SC8T_CKINVX1_MR_CSC28L SC8T_CKINVX1_CSC28L SC8T_CKINVX20_CSC28L SC8T_CKINVX24_CSC28L SC8T_CKINVX2_CSC28L SC8T_CKINVX4_CSC28L SC8T_CKINVX6_CSC28L SC8T_CKINVX8_CSC28L
+Total number of usable inverters: 26
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: SC8T_DLY100X1_CSC28L SC8T_DLY40X1_CSC28L SC8T_DLY60X1_CSC28L SC8T_DLY80X1_CSC28L
+Total number of identified usable delay cells: 4
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+#@ End verbose source: ../phy/scr/read_design.tcl
+@innovus 2> set_io_flow_flag 0
+@innovus 3> create_floorplan -site SC8T_104CPP_CMOS22FDX -core_density_size 1 0.5 10 10 10 10
+Adjusting coreMargin left    to finFet grid (PlacementGrid) : after adjusting :10.088
+Adjusting coreMargin right   to finFet grid (PlacementGrid) : after adjusting :10.088
+Adjusting core size to PlacementGrid : width :844.792 height : 843.52
+
+Honor LEF defined pitches for advanced node
+Start create_tracks
+**WARN: (IMPFP-325):	Floorplan of the design is resized. All current create_floorplan objects are automatically derived based on specified new create_floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+@innovus 4> set_io_flow_flag 0
+@innovus 5> create_floorplan -site SC8T_104CPP_CMOS22FDX -core_size 850 850 10.088 10.0 10.088 10.0
+Adjusting core size togrid(PlacementGrid): width :849.992 height : 850
+
+Honor LEF defined pitches for advanced node
+Start create_tracks
+**WARN: (IMPFP-325):	Floorplan of the design is resized. All current create_floorplan objects are automatically derived based on specified new create_floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+@innovus 6> set_io_flow_flag 0
+@innovus 7> create_floorplan -site SC8T_104CPP_CMOS22FDX -core_size 849.992 850.0 10 10.0 10 10.0
+**WARN: (IMPFP-4026):	Adjusting core to 'Left' to 9.984000 due to track/row misalignment. To force the value, specify the -no_snap_to_grid option or use floorplan_set_snap_rule command to specify the die/core to different grid.
+**WARN: (IMPFP-4026):	Adjusting core to 'Right' to 9.984000 due to track/row misalignment. To force the value, specify the -no_snap_to_grid option or use floorplan_set_snap_rule command to specify the die/core to different grid.
+
+Honor LEF defined pitches for advanced node
+Start create_tracks
+@innovus 8> **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+source ../phy/scr/floorplan_constrained.tcl 
+#@ Begin verbose source (pre): source ../phy/scr/floorplan_constrained.tcl 
+@file 1: #1. set margin
+@file 2: set margin 10
+@file 3:
+@file 4: #2. set width for Silago design blocks
+@file 5: set tile_width 200
+@file 6:
+@file 7: #3. set height for Silago design blocks
+@file 8: set tile_height 200
+@file 9:
+@file 10: #4. create floorplan area
+@@file 11: create_floorplan -site SC8T_104CPP_CMOS22FDX -core_size [expr {2*$margin + 8*$tile_width}] [expr {2*$margin + 2*$tile_height}] $margin $margin $margin $margin -no_snap_to_grid
+
+**INFO(INTERRUPT): The interrupted design can be viewed in its current state but should not be used to continue the flow.
+   1) Ignore and continue.
+   2) Quit.
+   3) Finish current command but interrupt TCL script.
+  Type a number 1-3 and press ENTER:  2
+Innovus terminated by user interrupt.
+
+*** Memory Usage v#1 (Current mem = 3825.812M, initial mem = 494.961M) ***
+*** Message Summary: 12898 warning(s), 23600 error(s)
+
+--- Ending "Innovus" (totcpu=0:27:52, real=0:32:48, mem=3825.8M) ---

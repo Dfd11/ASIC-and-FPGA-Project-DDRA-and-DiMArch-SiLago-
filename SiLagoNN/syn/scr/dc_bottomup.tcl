@@ -28,27 +28,23 @@
 #
 # $ dc_shell -f ../syn/dc_flat.tcl
 ################################################################################
-
-
-#DFD Need to check it the source file is correct
+## For logging
+log_file dc_bottomup.log
+## First we set directories
 set SOURCE_DIR ../rtl
-
 set DB_DIR ../syn/db
 set SYN_DIR ../syn
 
-file mkdir ../syn/rpt
-file mkdir ../syn/db
 #/* compile each subblock independently */
 remove_design -all
 
-# load synopsys config
+## Load technologies
 source "${SYN_DIR}/synopsys_dc.setup"
 
 proc nth_pass {n} {
     set prev_n [expr {$n - 1}]
     global SOURCE_DIR DB_DIR SYN_DIR
-    ##############################
-    #Then the design components
+############################################################# start SILEGO BLOCK
     set temp_top silego
     puts "INFO: Starting ${temp_top}"
     set hierarchy_files [split [read [open "${SOURCE_DIR}/${temp_top}_hierarchy.txt" r]] "\n"]
@@ -66,10 +62,8 @@ proc nth_pass {n} {
     }
     compile
     dont_touch silego true
-    ##############################
-    
-    ##############################
-    #Compile TOP LEFT
+############################################################# end SILEGO BLOCK
+############################################################# start TOP LEFT CORNER TILE
     set temp_top Silago_top_left_corner
     puts "INFO: Starting ${temp_top}"
     analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
@@ -83,10 +77,8 @@ proc nth_pass {n} {
     }
     compile
     dont_touch Silago_top_left_corner true
-    ##############################
-
-    ##############################
-    #Compile TOP
+############################################################# end TOP LEFT CORNER TILE
+############################################################# start TOP (MIDDLE) TILE
     set temp_top Silago_top
     puts "INFO: Starting ${temp_top}"
     analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
@@ -100,8 +92,8 @@ proc nth_pass {n} {
     }
     compile
     dont_touch Silago_top true
-    ##############################
-    ##############################
+############################################################# end TOP (MIDDLE) TILE
+############################################################# start TOP RIGHT CORNER TILE
     #Compile TOP RIGHT
     set temp_top Silago_top_right_corner
     puts "INFO: Starting ${temp_top}"
@@ -116,9 +108,8 @@ proc nth_pass {n} {
     }
     compile
     dont_touch Silago_top_right_corner true
-    ##############################
-    ##############################
-    #Compile TOP
+############################################################# end TOP RIGHT CORNER TILE
+############################################################# start BOTTOM LEFT CORNER TILE
     set temp_top Silago_bot_left_corner
     puts "INFO: Starting ${temp_top}"
     analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
@@ -132,9 +123,8 @@ proc nth_pass {n} {
     }
     compile
     dont_touch Silago_bot_left_corner true
-    ##############################
-    ##############################
-    #Compile TOP
+############################################################# end BOTTOM LEFT CORNER TILE
+############################################################# start BOTTOM (MIDDLE) TILE
     set temp_top Silago_bot
     puts "INFO: Starting ${temp_top}"
     analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
@@ -148,9 +138,8 @@ proc nth_pass {n} {
     }
     compile
     dont_touch Silago_bot true
-    ##############################
-    ##############################
-    #Compile TOP
+############################################################# end BOTTOM (MIDDLE) TILE
+############################################################# start BOTTOM RIGHT CORNER TILE
     set temp_top Silago_bot_right_corner
     puts "INFO: Starting ${temp_top}"
     analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
@@ -164,10 +153,8 @@ proc nth_pass {n} {
     }
     compile
     dont_touch Silago_bot_right_corner true
-    ##############################
-
-    ##############################
-    #Compile TOP
+############################################################# end BOTTOM RIGHT CORNER TILE
+############################################################# start TOP LEVEL DRRA WRAPPER
     set temp_top drra_wrapper
     puts "INFO: Starting ${temp_top}"
     analyze -format vhdl -lib WORK "${SOURCE_DIR}/mtrf/${temp_top}.vhd"
@@ -177,10 +164,7 @@ proc nth_pass {n} {
     #uniquify
     set_load 0.13 [all_outputs]
     source "${SYN_DIR}/constraints.sdc"
-
-    #LAST ONE DOESNT HAVE A COMPILE BEFORE WE NEED TO SET THE DO NOT TOUCH
-    ##############################
-
+## We do not use compile yet, we could but we double check with the don't touch command again and then we compile, as this drra_Wrapper top module takes in everything we've been compiling before.
     dont_touch silego true
     dont_touch Silago_top_left_corner true
     dont_touch Silago_top true
@@ -190,7 +174,7 @@ proc nth_pass {n} {
     dont_touch Silago_bot_right_corner true
 
     compile
-    ##############################
+############################################################# end TOP LEVEL DRRA WRAPPER
 
     #check if the constraints are met
     report_constraint
@@ -235,7 +219,15 @@ nth_pass 1
 puts "Second pass"
 nth_pass 2
 current_design drra_wrapper
-report_area > "${SYN_DIR}/rpt/area.txt"
-report_power > "${SYN_DIR}/rpt/power.txt"
-report_timing > "${SYN_DIR}/rpt/timing.txt"
-write_file -format verilog -hier -output "${DB_DIR}/drra_wrapper.v"
+report_area > "${SYN_DIR}/rpt/BOTTOMUP_area.txt"
+report_power > "${SYN_DIR}/rpt/BOTTOMUP_power.txt"
+report_timing > "${SYN_DIR}/rpt/BOTTOM_UPtiming.txt"
+
+## Generate netlist for further tasks
+write_file -format verilog -hier -output "${DB_DIR}/BOTTOMUP_drra_wrapper.v"
+
+## For Task 4
+write_sdc "${DB_DIR}/drra_wrapper_bottomup.sdc"
+
+log_file
+

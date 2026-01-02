@@ -1,0 +1,39 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.19-s058_1, built Thu Apr 4 09:59:17 PDT 2024
+Options:	-stylus -stylus 
+Date:		Fri Jan  2 07:52:35 2026
+Host:		il2225ht25_jacome (x86_64 w/Linux 5.15.0-164-generic) (12cores*48cpus*Intel(R) Xeon(R) CPU E7-8857 v2 @ 3.00GHz 30720KB)
+OS:		Rocky Linux 8.10 (Green Obsidian)
+
+License:
+		[07:52:35.443828] Configured Lic search path (21.01-s002): 27020@lic04.ug.kth.se:27020@lic05.ug.kth.se:3000@lic08.ug.kth.se:29000@lic06.ug.kth.se
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+
+
+**WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+Create and set the environment variable TMPDIR to /tmp/innovus_temp_882010_il2225ht25_jacome_jacome_FGPvGi.
+
+Change the soft stacksize limit to 0.2%RAM (6192 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+@innovus 1> source ../phy/scr/assemble_design.tcl -log assemble_design.log
+
+Usage: source [-help] <file_name> [-quiet  | -verbose ] [-quiet  | -echo ]
+
+**ERROR: (IMPTCM-48):	"-log" is not a legal option for command "source". Either the current option or an option prior to it is not specified correctly.
+  
+  
+@innovus 2> **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+**INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+Innovus terminated by user interrupt.
+
+*** Memory Usage v#1 (Current mem = 1062.875M, initial mem = 494.961M) ***
+*** Message Summary: 1 warning(s), 1 error(s)
+
+--- Ending "Innovus" (totcpu=0:02:13, real=0:09:40, mem=1062.9M) ---

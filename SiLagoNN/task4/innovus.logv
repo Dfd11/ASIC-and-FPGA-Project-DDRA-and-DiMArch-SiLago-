@@ -1,0 +1,221 @@
+[12/23 11:44:51      0s] 
+[12/23 11:44:51      0s] Cadence Innovus(TM) Implementation System.
+[12/23 11:44:51      0s] Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+[12/23 11:44:51      0s] 
+[12/23 11:44:51      0s] Version:	v21.19-s058_1, built Thu Apr 4 09:59:17 PDT 2024
+[12/23 11:44:51      0s] Options:	-stylus -stylus 
+[12/23 11:44:51      0s] Date:		Tue Dec 23 11:44:51 2025
+[12/23 11:44:51      0s] Host:		il2225ht25_jacome (x86_64 w/Linux 5.15.0-164-generic) (12cores*48cpus*Intel(R) Xeon(R) CPU E7-8857 v2 @ 3.00GHz 30720KB)
+[12/23 11:44:51      0s] OS:		Rocky Linux 8.10 (Green Obsidian)
+[12/23 11:44:51      0s] 
+[12/23 11:44:51      0s] License:
+[12/23 11:44:51      0s] 		[11:44:51.443780] Configured Lic search path (21.01-s002): 27020@lic04.ug.kth.se:27020@lic05.ug.kth.se:3000@lic08.ug.kth.se:29000@lic06.ug.kth.se
+[12/23 11:44:51      0s] 
+[12/23 11:44:51      0s] 		invs	Innovus Implementation System	21.1	checkout succeeded
+[12/23 11:44:51      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[12/23 11:45:02     10s] 
+[12/23 11:45:02     10s] 
+[12/23 11:45:08     16s] Reset Parastics called with the command setExtractRCMode -reset[12/23 11:45:10     18s] **WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+@(#)CDS: Innovus v21.19-s058_1 (64bit) 04/04/2024 09:59 (Linux 3.10.0-693.el7.x86_64)
+[12/23 11:45:11     19s] @(#)CDS: NanoRoute 21.19-s058_1 NR231113-0413/21_19-UB (database version 18.20.605) {superthreading v2.17}
+[12/23 11:45:11     19s] @(#)CDS: AAE 21.19-s004 (64bit) 04/04/2024 (Linux 3.10.0-693.el7.x86_64)
+[12/23 11:45:11     19s] @(#)CDS: CTE 21.19-s010_1 () Mar 27 2024 01:55:37 ( )
+[12/23 11:45:11     19s] @(#)CDS: SYNTECH 21.19-s002_1 () Sep  6 2023 22:17:00 ( )
+[12/23 11:45:11     19s] @(#)CDS: CPE v21.19-s026
+[12/23 11:45:11     19s] @(#)CDS: IQuantus/TQuantus 21.1.1-s966 (64bit) Wed Mar 8 10:22:20 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+[12/23 11:45:11     19s] @(#)CDS: OA 22.60-p087 Thu Feb  9 09:35:26 2023
+[12/23 11:45:11     19s] @(#)CDS: SGN 20.10-d001 (01-Jun-2020) (64 bit executable, Qt5.9.0)
+[12/23 11:45:11     19s] @(#)CDS: RCDB 11.15.0
+[12/23 11:45:11     19s] @(#)CDS: STYLUS 21.12-s019_1 (12/20/2022 05:13 PST)
+[12/23 11:45:11     19s] @(#)CDS: SystemPlanner-21.18-10439 (21.18) (2023-03-01 15:40:03+0800)
+[12/23 11:45:11     19s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_31816_il2225ht25_jacome_jacome_Jqq3t2.
+
+[12/23 11:45:11     19s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_31816_il2225ht25_jacome_jacome_Jqq3t2.
+[12/23 11:45:11     19s] 
+[12/23 11:45:11     19s] Change the soft stacksize limit to 0.2%RAM (6192 mbytes). Set global soft_stack_size_limit to change the value.
+[12/23 11:45:14     22s] 
+[12/23 11:45:14     22s] **INFO:  MMMC transition support version v31-84 
+[12/23 11:45:14     22s] 
+[12/23 11:45:18     26s] @innovus 1> source ../phy/scr/read_design.tcl
+#@ Begin verbose source (pre): source ../phy/scr/read_design.tcl
+[12/23 11:47:38     42s] @file 1: #1. source global variables
+[12/23 11:47:38     42s] @file 2: source ../phy/scr/global_variables.tcl
+[12/23 11:47:38     42s] #@ Begin verbose source ../phy/scr/global_variables.tcl (pre)
+[12/23 11:47:38     42s] @file 1: set NUM_CPUS 8
+[12/23 11:47:38     42s] @file 2: #set the top name of the design
+[12/23 11:47:38     42s] @file 3: set TOP_NAME drra_wrapper
+[12/23 11:47:38     42s] @file 4:
+[12/23 11:47:38     42s] @file 5: # Directories
+[12/23 11:47:38     42s] @file 6: set OUTPUT_DIR "../phy/db"
+[12/23 11:47:38     42s] @file 7: set RPT_DIR    "../phy/rpt"
+[12/23 11:47:38     42s] @file 8: set SCR_DIR    "../phy/scr"
+[12/23 11:47:38     42s] @file 9: set PART_DIR   "../phy/db/part/"
+[12/23 11:47:38     42s] @file 10: set SRC_DIR    "../syn/db/"
+[12/23 11:47:38     42s] @file 11:
+[12/23 11:47:38     42s] @file 12: set STDC_CCS_DIR "/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs"
+[12/23 11:47:38     42s] @file 13: set TECH_LEF_DIR  "/opt/pdk/gf22/V1.0_4.1/PlaceRoute/Innovus/Techfiles/10M_2Mx_4Cx_2Bx_2Jx_LB"
+[12/23 11:47:38     42s] @file 14: set STDC_LEF_DIR  "/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/lef"
+[12/23 11:47:38     42s] @file 15:
+[12/23 11:47:38     42s] @file 16: set LEF_FILE "${TECH_LEF_DIR}/22FDSOI_10M_2Mx_4Cx_2Bx_2Jx_LB_104cpp_tech.lef \
+[12/23 11:47:38     42s]         ${STDC_LEF_DIR}/GF22FDX_SC8T_104CPP_BASE_CSC28L.lef"
+[12/23 11:47:38     42s] @file 18:
+[12/23 11:47:38     42s] @file 19: set STDC_QRC_DIR  "/opt/pdk/gf22/V1.0_4.1/PEX/QRC/10M_2Mx_4Cx_2Bx_2Jx_LBthick"
+[12/23 11:47:38     42s] @file 20:
+[12/23 11:47:38     42s] @file 21: set OP_COD_LIB_BC "GF22FDX_SC8T_104CPP_BASE_CSC28L_FFG_0P72V_0P00V_0P00V_0P00V_M40C"
+[12/23 11:47:38     42s] @file 22: set OP_COD_LIB_TC "GF22FDX_SC8T_104CPP_BASE_CSC28L_TT_0P80V_0P00V_0P00V_0P00V_25C"
+[12/23 11:47:38     42s] @file 23: set OP_COD_LIB_WC "GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C"
+[12/23 11:47:38     42s] @file 24: set OP_COD_LIB_SRAM_BC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_TT_0P800V_0P800V_0P000V_0P000V_025C"
+[12/23 11:47:38     42s] @file 25: set OP_COD_LIB_SRAM_TC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_TT_0P800V_0P800V_0P000V_0P000V_025C"
+[12/23 11:47:38     42s] @file 26: set OP_COD_LIB_SRAM_WC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_SSG_0P720V_0P720V_0P000V_0P000V_125C"
+[12/23 11:47:38     42s] @file 27: set OP_COD_LIB_IO_BC "dwc_io_gf22fdx_1p8v_gpio_i_ull_ffg0p945v1p320vm40c_funccmin"
+[12/23 11:47:38     42s] @file 28: set OP_COD_LIB_IO_TC "dwc_io_gf22fdx_1p8v_gpio_i_ull_tt0p800v1p500v25c"
+[12/23 11:47:38     42s] @file 29: set OP_COD_LIB_IO_WC "dwc_io_gf22fdx_1p8v_gpio_i_ull_ssg0p720v1p620v125c_funccmax"
+[12/23 11:47:38     42s] @file 30: set LIB_FILES_BC "${STDC_CCS_DIR}/${OP_COD_LIB_BC}_ccs.lib.gz"
+[12/23 11:47:38     42s] @file 31: set LIB_FILES_TC "${STDC_CCS_DIR}/${OP_COD_LIB_TC}_ccs.lib.gz"
+[12/23 11:47:38     42s] @file 32: set LIB_FILES_WC "${STDC_CCS_DIR}/${OP_COD_LIB_WC}_ccs.lib.gz"
+[12/23 11:47:38     42s] @file 33: set OP_COD_BC "FFG_0P72V_0P00V_0P00V_0P00V_M40C"
+[12/23 11:47:38     42s] @file 34: set OP_COD_TC "TT_0P80V_0P00V_0P00V_0P00V_25C"
+[12/23 11:47:38     42s] @file 35: set OP_COD_WC "SSG_0P72V_0P00V_0P00V_0P00V_125C"
+[12/23 11:47:38     42s] @file 36: set OP_COD_SRAM_BC "TT_0P800V_0P800V_0P000V_0P000V_025C"
+[12/23 11:47:38     42s] @file 37: set OP_COD_SRAM_TC "TT_0P800V_0P800V_0P000V_0P000V_025C"
+[12/23 11:47:38     42s] @file 38: set OP_COD_SRAM_WC "SSG_0P720V_0P720V_0P000V_0P000V_125C"
+[12/23 11:47:38     42s] @file 39: set OP_COD_IO_BC "ffg0p945v1p320vm40c"
+[12/23 11:47:38     42s] @file 40: set OP_COD_IO_TC "TT_0P8_1P5_25"
+[12/23 11:47:38     42s] @file 41: set OP_COD_IO_WC "SSG_0P59_1P08_125"
+[12/23 11:47:38     42s] @file 42: set QRC_FILE_BC "${STDC_QRC_DIR}/FuncRCminDP/qrcTechFile"
+[12/23 11:47:38     42s] @file 43: set QRC_FILE_TC "${STDC_QRC_DIR}/nominal/qrcTechFile"
+[12/23 11:47:38     42s] @file 44: set QRC_FILE_WC "${STDC_QRC_DIR}/FuncRCmaxDP/qrcTechFile"
+[12/23 11:47:38     42s] @file 45:
+[12/23 11:47:38     42s] @file 46: set MMMC_FILE         "${SCR_DIR}/mmmc.tcl"
+[12/23 11:47:38     42s] @file 47: set NETLIST_FILE       "${SRC_DIR}/${TOP_NAME}.v"
+[12/23 11:47:38     42s] @file 48: set SDC_FILES          "${SRC_DIR}/${TOP_NAME}.sdc"
+[12/23 11:47:38     42s] #@ End verbose source ../phy/scr/global_variables.tcl
+[12/23 11:47:38     42s] @file 3: puts "INFO_DFD:Done with Global Variables"
+[12/23 11:47:38     42s] INFO_DFD:Done with Global Variables
+[12/23 11:47:38     42s] @file 4: #2. source design variables
+[12/23 11:47:38     42s] @@file 5: set_multi_cpu_usage -local_cpu ${NUM_CPUS} -cpu_per_remote_host 1 -remote_host 0 -keep_license true
+[12/23 11:47:38     42s] Setting releaseMultiCpuLicenseMode to false.
+[12/23 11:47:38     42s] @@file 6: set_distributed_hosts -local
+[12/23 11:47:38     42s] The timeout for a remote job to respond is 3600 seconds.
+[12/23 11:47:38     42s] Submit command for task runs will be: local
+[12/23 11:47:38     42s] @file 7: puts "INFO_DFD:Done with Local Variables"
+[12/23 11:47:38     42s] INFO_DFD:Done with Local Variables
+[12/23 11:47:38     42s] @file 8: #3. set vdd net
+[12/23 11:47:38     42s] @@file 9: set_db init_power_nets {VDD}
+[12/23 11:47:38     42s] @file 10: #4. set vss net
+[12/23 11:47:38     42s] @@file 11: set_db init_ground_nets {VSS}
+[12/23 11:47:38     42s] @file 12: #5. read mmmc file
+[12/23 11:47:38     42s] @file 13: puts "INFO_DFD:Reading MMC File"
+[12/23 11:47:38     42s] INFO_DFD:Reading MMC File
+[12/23 11:47:38     42s] @@file 14: read_mmmc ${MMMC_FILE}
+[12/23 11:47:38     42s] #@ Begin verbose source ../phy/scr/mmmc.tcl (pre)
+[12/23 11:47:38     42s] @@file 1: create_library_set -name LIBSET_TC -timing [list $LIB_FILES_TC]
+[12/23 11:47:38     42s] @@file 2: create_library_set -name LIBSET_BC -timing [list $LIB_FILES_BC]
+[12/23 11:47:38     42s] @@file 3: create_library_set -name LIBSET_WC -timing [list $LIB_FILES_WC]
+[12/23 11:47:38     42s] @@file 4: create_rc_corner \
+[12/23 11:47:38     42s]     -name rc_best \
+[12/23 11:47:38     42s]     -pre_route_res 1 \
+[12/23 11:47:38     42s]     -post_route_res 1 \
+[12/23 11:47:38     42s]     -pre_route_cap 1 \
+[12/23 11:47:38     42s]     -post_route_cap 1 \
+[12/23 11:47:38     42s]     -post_route_cross_cap 1 \
+[12/23 11:47:38     42s]     -post_route_clock_res 0 \
+[12/23 11:47:38     42s]     -post_route_clock_cap 0 \
+[12/23 11:47:38     42s]     -qrc_tech $QRC_FILE_BC 
+[12/23 11:47:38     42s] @@file 14: create_rc_corner -name rc_typ \
+[12/23 11:47:38     42s]     -pre_route_res 1 \
+[12/23 11:47:38     42s]     -post_route_res 1 \
+[12/23 11:47:38     42s]     -pre_route_cap 1 \
+[12/23 11:47:38     42s]     -post_route_cap 1 \
+[12/23 11:47:38     42s]     -post_route_cross_cap 1 \
+[12/23 11:47:38     42s]     -post_route_clock_res 0 \
+[12/23 11:47:38     42s]     -post_route_clock_cap 0 \
+[12/23 11:47:38     42s]     -qrc_tech $QRC_FILE_TC 
+[12/23 11:47:38     42s] @@file 23: create_rc_corner -name rc_worst \
+[12/23 11:47:38     42s]     -pre_route_res 1 \
+[12/23 11:47:38     42s]     -post_route_res 1 \
+[12/23 11:47:38     42s]     -pre_route_cap 1 \
+[12/23 11:47:38     42s]     -post_route_cap 1 \
+[12/23 11:47:38     42s]     -post_route_cross_cap 1 \
+[12/23 11:47:38     42s]     -post_route_clock_res 0 \
+[12/23 11:47:38     42s]     -post_route_clock_cap 0 \
+[12/23 11:47:38     42s]     -qrc_tech $QRC_FILE_WC
+[12/23 11:47:38     42s] @@file 32: create_timing_condition \
+[12/23 11:47:38     42s]     -name cond_best \
+[12/23 11:47:38     42s]     -library_set LIBSET_BC \
+[12/23 11:47:38     42s]     -opcond $OP_COD_BC \
+[12/23 11:47:38     42s]     -opcond_library $OP_COD_LIB_BC
+[12/23 11:47:38     42s] @@file 37: create_timing_condition \
+[12/23 11:47:38     42s]     -name cond_typ \
+[12/23 11:47:38     42s]     -library_set LIBSET_TC \
+[12/23 11:47:38     42s]     -opcond $OP_COD_TC \
+[12/23 11:47:38     42s]     -opcond_library $OP_COD_LIB_TC
+[12/23 11:47:38     42s] @@file 42: create_timing_condition \
+[12/23 11:47:38     42s]     -name cond_worst \
+[12/23 11:47:38     42s]     -library_set LIBSET_WC \
+[12/23 11:47:38     42s]     -opcond $OP_COD_WC \
+[12/23 11:47:38     42s]     -opcond_library $OP_COD_LIB_WC
+[12/23 11:47:38     42s] @@file 47: create_delay_corner \
+[12/23 11:47:38     42s]     -name WC_dc \
+[12/23 11:47:38     42s]     -rc_corner rc_worst \
+[12/23 11:47:38     42s]     -timing_condition {cond_worst}
+[12/23 11:47:38     43s] @@file 51: create_delay_corner \
+[12/23 11:47:38     43s]     -name TC_dc \
+[12/23 11:47:38     43s]     -rc_corner rc_typ \
+[12/23 11:47:38     43s]     -timing_condition {cond_typ}
+[12/23 11:47:38     43s] @@file 55: create_delay_corner \
+[12/23 11:47:38     43s]     -name BC_dc \
+[12/23 11:47:38     43s]     -rc_corner rc_best \
+[12/23 11:47:38     43s]     -timing_condition {cond_best}
+[12/23 11:47:38     43s] @@file 59: create_constraint_mode -name functional -sdc_files $SDC_FILES
+[12/23 11:47:38     43s] **ERROR: (TCLCMD-989):	cannot open SDC file '../syn/db//drra_wrapper.sdc' for mode 'functional'
+[12/23 11:47:38     43s] **ERROR: (IMPSE-110):	File '../phy/scr/mmmc.tcl' line 59: errors out.
+[12/23 11:47:38     43s] #@ End verbose source ../phy/scr/mmmc.tcl
+[12/23 11:47:38     43s] 
+[12/23 11:47:38     43s]     while executing
+[12/23 11:47:38     43s] "create_constraint_mode -name functional -sdc_files $SDC_FILES"
+[12/23 11:47:38     43s]     (file "../phy/scr/mmmc.tcl" line 59)
+[12/23 11:47:38     43s]     invoked from within
+[12/23 11:47:38     43s] "::se_source_orig ../phy/scr/mmmc.tcl"
+[12/23 11:47:38     43s]     ("uplevel" body line 1)
+[12/23 11:47:38     43s]     invoked from within
+[12/23 11:47:38     43s] "uplevel [concat ::se_source_orig $args]"
+[12/23 11:47:38     43s]     invoked from within
+[12/23 11:47:38     43s] "if {[::SE::source_verbose_file_state $file_name] == 1} {
+[12/23 11:47:38     43s]               ::SE::source_verbose_start $file_name
+[12/23 11:47:38     43s]               set st [uplevel [concat ::s..."
+[12/23 11:47:38     43s]     invoked from within
+[12/23 11:47:38     43s] "if {$useTclVerbose} {
+[12/23 11:47:38     43s]           # use tcl internal method
+[12/23 11:47:38     43s]           set st ""
+[12/23 11:47:38     43s]           if {[::SE::source_verbose_file_state $file_name] == 1} {
+[12/23 11:47:38     43s]      ..."
+[12/23 11:47:38     43s]     invoked from within
+[12/23 11:47:38     43s] "if {$largeFile == 1} {
+[12/23 11:47:38     43s]     if {$enableVerbose == 0 && [::SE::isEchoFile] == 1} {
+[12/23 11:47:38     43s]       $putCmd "Sourcing $file_name"
+[12/23 11:47:38     43s]     }
+[12/23 11:47:38     43s]     set st [uplevel [concat..."
+[12/23 11:47:38     43s]     (procedure "source" line 163)
+[12/23 11:47:38     43s]     invoked from within
+[12/23 11:47:38     43s] "source ../phy/scr/mmmc.tcl"
+[12/23 11:47:38     43s]     ("uplevel" body line 1)
+[12/23 11:47:38     43s]     invoked from within
+[12/23 11:47:38     43s] "uplevel #0 {source ../phy/scr/mmmc.tcl}"
+[12/23 11:47:38     43s] **ERROR: (IMPSE-110):	File '../phy/scr/read_design.tcl' line 14: errors out.
+[12/23 11:47:38     43s] #@ End verbose source ../phy/scr/read_design.tcl
+[12/23 11:47:38     43s] 
+[12/23 11:47:38     43s] 
+[12/23 11:47:38     43s] @innovus 2> **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+[12/23 11:49:50     58s] Innovus terminated by user interrupt.
+[12/23 11:49:50     58s] 
+[12/23 11:49:50     58s] *** Memory Usage v#1 (Current mem = 1065.383M, initial mem = 494.961M) ***
+[12/23 11:49:50     58s] 
+[12/23 11:49:50     58s] *** Summary of all messages that are not suppressed in this session:
+[12/23 11:49:50     58s] Severity  ID               Count  Summary                                  
+[12/23 11:49:50     58s] ERROR     IMPSE-110            2  File '%s' line %s: %s.                   
+[12/23 11:49:50     58s] WARNING   IMPOPT-801           1  Genus executable not found in PATH%s. In...
+[12/23 11:49:50     58s] ERROR     TCLCMD-989           1  cannot open SDC file '%s' for mode '%s'  
+[12/23 11:49:50     58s] *** Message Summary: 1 warning(s), 3 error(s)
+[12/23 11:49:50     58s] 
+[12/23 11:49:50     58s] --- Ending "Innovus" (totcpu=0:00:58.1, real=0:04:59, mem=1065.4M) ---

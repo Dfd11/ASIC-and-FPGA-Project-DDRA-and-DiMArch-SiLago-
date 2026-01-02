@@ -1,0 +1,281 @@
+[12/30 22:07:46      0s] 
+[12/30 22:07:46      0s] Cadence Innovus(TM) Implementation System.
+[12/30 22:07:46      0s] Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+[12/30 22:07:46      0s] 
+[12/30 22:07:46      0s] Version:	v21.19-s058_1, built Thu Apr 4 09:59:17 PDT 2024
+[12/30 22:07:46      0s] Options:	-stylus -stylus 
+[12/30 22:07:46      0s] Date:		Tue Dec 30 22:07:46 2025
+[12/30 22:07:46      0s] Host:		il2225ht25_jacome (x86_64 w/Linux 5.15.0-164-generic) (12cores*48cpus*Intel(R) Xeon(R) CPU E7-8857 v2 @ 3.00GHz 30720KB)
+[12/30 22:07:46      0s] OS:		Rocky Linux 8.10 (Green Obsidian)
+[12/30 22:07:46      0s] 
+[12/30 22:07:46      0s] License:
+[12/30 22:07:46      0s] 		[22:07:46.443820] Configured Lic search path (21.01-s002): 27020@lic04.ug.kth.se:27020@lic05.ug.kth.se:3000@lic08.ug.kth.se:29000@lic06.ug.kth.se
+[12/30 22:07:46      0s] 
+[12/30 22:07:46      0s] 		invs	Innovus Implementation System	21.1	checkout succeeded
+[12/30 22:07:46      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[12/30 22:07:58     11s] 
+[12/30 22:07:58     11s] 
+[12/30 22:08:04     17s] Reset Parastics called with the command setExtractRCMode -reset[12/30 22:08:06     19s] **WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+@(#)CDS: Innovus v21.19-s058_1 (64bit) 04/04/2024 09:59 (Linux 3.10.0-693.el7.x86_64)
+[12/30 22:08:08     21s] @(#)CDS: NanoRoute 21.19-s058_1 NR231113-0413/21_19-UB (database version 18.20.605) {superthreading v2.17}
+[12/30 22:08:08     21s] @(#)CDS: AAE 21.19-s004 (64bit) 04/04/2024 (Linux 3.10.0-693.el7.x86_64)
+[12/30 22:08:08     21s] @(#)CDS: CTE 21.19-s010_1 () Mar 27 2024 01:55:37 ( )
+[12/30 22:08:08     21s] @(#)CDS: SYNTECH 21.19-s002_1 () Sep  6 2023 22:17:00 ( )
+[12/30 22:08:08     21s] @(#)CDS: CPE v21.19-s026
+[12/30 22:08:08     21s] @(#)CDS: IQuantus/TQuantus 21.1.1-s966 (64bit) Wed Mar 8 10:22:20 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+[12/30 22:08:08     21s] @(#)CDS: OA 22.60-p087 Thu Feb  9 09:35:26 2023
+[12/30 22:08:08     21s] @(#)CDS: SGN 20.10-d001 (01-Jun-2020) (64 bit executable, Qt5.9.0)
+[12/30 22:08:08     21s] @(#)CDS: RCDB 11.15.0
+[12/30 22:08:08     21s] @(#)CDS: STYLUS 21.12-s019_1 (12/20/2022 05:13 PST)
+[12/30 22:08:08     21s] @(#)CDS: SystemPlanner-21.18-10439 (21.18) (2023-03-01 15:40:03+0800)
+[12/30 22:08:08     21s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_503471_il2225ht25_jacome_jacome_7lucQh.
+
+[12/30 22:08:08     21s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_503471_il2225ht25_jacome_jacome_7lucQh.
+[12/30 22:08:08     21s] 
+[12/30 22:08:08     21s] Change the soft stacksize limit to 0.2%RAM (6192 mbytes). Set global soft_stack_size_limit to change the value.
+[12/30 22:08:11     24s] 
+[12/30 22:08:11     24s] **INFO:  MMMC transition support version v31-84 
+[12/30 22:08:11     24s] 
+[12/30 22:08:16     28s] @innovus 1> source ../phy/scr/pnr_top.tcl
+#@ Begin verbose source (pre): source ../phy/scr/pnr_top.tcl
+[12/30 22:08:56     33s] @file 1: source ../phy/scr/global_variables.tcl
+[12/30 22:08:56     33s] #@ Begin verbose source ../phy/scr/global_variables.tcl (pre)
+[12/30 22:08:56     33s] @file 1: set NUM_CPUS 8
+[12/30 22:08:56     33s] @file 2: #set the top name of the design
+[12/30 22:08:56     33s] @file 3: set TOP_NAME FLAT_drra_wrapper
+[12/30 22:08:56     33s] @file 4:
+[12/30 22:08:56     33s] @file 5: # Directories
+[12/30 22:08:56     33s] @file 6: set OUTPUT_DIR "../phy/db"
+[12/30 22:08:56     33s] @file 7: set RPT_DIR    "../phy/flat_rpt"
+[12/30 22:08:56     33s] @file 8: set SCR_DIR    "../phy/scr"
+[12/30 22:08:56     33s] @file 9: set PART_DIR   "../phy/db/part/"
+[12/30 22:08:56     33s] @file 10: set SRC_DIR    "../syn/db/"
+[12/30 22:08:56     33s] @file 11:
+[12/30 22:08:56     33s] @file 12: set STDC_CCS_DIR "/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs"
+[12/30 22:08:56     33s] @file 13: set TECH_LEF_DIR  "/opt/pdk/gf22/V1.0_4.1/PlaceRoute/Innovus/Techfiles/10M_2Mx_4Cx_2Bx_2Jx_LB"
+[12/30 22:08:56     33s] @file 14: set STDC_LEF_DIR  "/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/lef"
+[12/30 22:08:56     33s] @file 15:
+[12/30 22:08:56     33s] @file 16: set LEF_FILE "${TECH_LEF_DIR}/22FDSOI_10M_2Mx_4Cx_2Bx_2Jx_LB_104cpp_tech.lef \
+[12/30 22:08:56     33s]         ${STDC_LEF_DIR}/GF22FDX_SC8T_104CPP_BASE_CSC28L.lef"
+[12/30 22:08:56     33s] @file 18:
+[12/30 22:08:56     33s] @file 19: set STDC_QRC_DIR  "/opt/pdk/gf22/V1.0_4.1/PEX/QRC/10M_2Mx_4Cx_2Bx_2Jx_LBthick"
+[12/30 22:08:56     33s] @file 20:
+[12/30 22:08:56     33s] @file 21: set OP_COD_LIB_BC "GF22FDX_SC8T_104CPP_BASE_CSC28L_FFG_0P72V_0P00V_0P00V_0P00V_M40C"
+[12/30 22:08:56     33s] @file 22: set OP_COD_LIB_TC "GF22FDX_SC8T_104CPP_BASE_CSC28L_TT_0P80V_0P00V_0P00V_0P00V_25C"
+[12/30 22:08:56     33s] @file 23: set OP_COD_LIB_WC "GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C"
+[12/30 22:08:56     33s] @file 24: set OP_COD_LIB_SRAM_BC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_TT_0P800V_0P800V_0P000V_0P000V_025C"
+[12/30 22:08:56     33s] @file 25: set OP_COD_LIB_SRAM_TC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_TT_0P800V_0P800V_0P000V_0P000V_025C"
+[12/30 22:08:56     33s] @file 26: set OP_COD_LIB_SRAM_WC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_SSG_0P720V_0P720V_0P000V_0P000V_125C"
+[12/30 22:08:56     33s] @file 27: set OP_COD_LIB_IO_BC "dwc_io_gf22fdx_1p8v_gpio_i_ull_ffg0p945v1p320vm40c_funccmin"
+[12/30 22:08:56     33s] @file 28: set OP_COD_LIB_IO_TC "dwc_io_gf22fdx_1p8v_gpio_i_ull_tt0p800v1p500v25c"
+[12/30 22:08:56     33s] @file 29: set OP_COD_LIB_IO_WC "dwc_io_gf22fdx_1p8v_gpio_i_ull_ssg0p720v1p620v125c_funccmax"
+[12/30 22:08:56     33s] @file 30: set LIB_FILES_BC "${STDC_CCS_DIR}/${OP_COD_LIB_BC}_ccs.lib.gz"
+[12/30 22:08:56     33s] @file 31: set LIB_FILES_TC "${STDC_CCS_DIR}/${OP_COD_LIB_TC}_ccs.lib.gz"
+[12/30 22:08:56     33s] @file 32: set LIB_FILES_WC "${STDC_CCS_DIR}/${OP_COD_LIB_WC}_ccs.lib.gz"
+[12/30 22:08:56     33s] @file 33: set OP_COD_BC "FFG_0P72V_0P00V_0P00V_0P00V_M40C"
+[12/30 22:08:56     33s] @file 34: set OP_COD_TC "TT_0P80V_0P00V_0P00V_0P00V_25C"
+[12/30 22:08:56     33s] @file 35: set OP_COD_WC "SSG_0P72V_0P00V_0P00V_0P00V_125C"
+[12/30 22:08:56     33s] @file 36: set OP_COD_SRAM_BC "TT_0P800V_0P800V_0P000V_0P000V_025C"
+[12/30 22:08:56     33s] @file 37: set OP_COD_SRAM_TC "TT_0P800V_0P800V_0P000V_0P000V_025C"
+[12/30 22:08:56     33s] @file 38: set OP_COD_SRAM_WC "SSG_0P720V_0P720V_0P000V_0P000V_125C"
+[12/30 22:08:56     33s] @file 39: set OP_COD_IO_BC "ffg0p945v1p320vm40c"
+[12/30 22:08:56     33s] @file 40: set OP_COD_IO_TC "TT_0P8_1P5_25"
+[12/30 22:08:56     33s] @file 41: set OP_COD_IO_WC "SSG_0P59_1P08_125"
+[12/30 22:08:56     33s] @file 42: set QRC_FILE_BC "${STDC_QRC_DIR}/FuncRCminDP/qrcTechFile"
+[12/30 22:08:56     33s] @file 43: set QRC_FILE_TC "${STDC_QRC_DIR}/nominal/qrcTechFile"
+[12/30 22:08:56     33s] @file 44: set QRC_FILE_WC "${STDC_QRC_DIR}/FuncRCmaxDP/qrcTechFile"
+[12/30 22:08:56     33s] @file 45:
+[12/30 22:08:56     33s] @file 46: set MMMC_FILE         "${SCR_DIR}/mmmc.tcl"
+[12/30 22:08:56     33s] @file 47: set NETLIST_FILE       "${SRC_DIR}/${TOP_NAME}.v"
+[12/30 22:08:56     33s] @file 48: set SDC_FILES          "${SRC_DIR}/${TOP_NAME}.sdc"
+[12/30 22:08:56     33s] #@ End verbose source ../phy/scr/global_variables.tcl
+[12/30 22:08:56     33s] @file 2: source ../phy/scr/design_variables.tcl
+[12/30 22:08:56     33s] #@ Begin verbose source ../phy/scr/design_variables.tcl (pre)
+[12/30 22:08:56     33s] @file 1: #parititon instantiation labels
+[12/30 22:08:56     33s] @file 2: set partition_hinst_list {
+[12/30 22:08:56     33s]     Silago_top_l_corner_inst_0_0 \
+[12/30 22:08:56     33s]     Silago_top_inst_1_0 \
+[12/30 22:08:56     33s]     Silago_top_inst_2_0 \
+[12/30 22:08:56     33s]     Silago_top_inst_3_0 \
+[12/30 22:08:56     33s]     Silago_top_inst_4_0 \
+[12/30 22:08:56     33s]     Silago_top_inst_5_0 \
+[12/30 22:08:56     33s]     Silago_top_inst_6_0 \
+[12/30 22:08:56     33s]     Silago_top_r_corner_inst_7_0 \
+[12/30 22:08:56     33s]     Silago_bot_l_corner_inst_0_1 \
+[12/30 22:08:56     33s]     Silago_bot_inst_1_1 \
+[12/30 22:08:56     33s]     Silago_bot_inst_2_1 \
+[12/30 22:08:56     33s]     Silago_bot_inst_3_1 \
+[12/30 22:08:56     33s]     Silago_bot_inst_4_1 \
+[12/30 22:08:56     33s]     Silago_bot_inst_5_1 \
+[12/30 22:08:56     33s]     Silago_bot_inst_6_1 \
+[12/30 22:08:56     33s]     Silago_bot_r_corner_inst_7_1
+[12/30 22:08:56     33s] }
+[12/30 22:08:56     33s] @file 20:
+[12/30 22:08:56     33s] @file 21: #partition module names from RTL
+[12/30 22:08:56     33s] @file 22: set partition_module_list {
+[12/30 22:08:56     33s]     Silago_top_left_corner \
+[12/30 22:08:56     33s]     Silago_top_0 \
+[12/30 22:08:56     33s]     Silago_top_1 \
+[12/30 22:08:56     33s]     Silago_top_2 \
+[12/30 22:08:56     33s]     Silago_top_3 \
+[12/30 22:08:56     33s]     Silago_top_4 \
+[12/30 22:08:56     33s]     Silago_top_5 \
+[12/30 22:08:56     33s]     Silago_top_right_corner \
+[12/30 22:08:56     33s]     Silago_bot_left_corner \
+[12/30 22:08:56     33s]     Silago_bot_0 \
+[12/30 22:08:56     33s]     Silago_bot_1 \
+[12/30 22:08:56     33s]     Silago_bot_2 \
+[12/30 22:08:56     33s]     Silago_bot_3 \
+[12/30 22:08:56     33s]     Silago_bot_4 \
+[12/30 22:08:56     33s]     Silago_bot_5 \
+[12/30 22:08:56     33s]     Silago_bot_right_corner
+[12/30 22:08:56     33s] }
+[12/30 22:08:56     33s] #@ End verbose source ../phy/scr/design_variables.tcl
+[12/30 22:08:56     33s] @file 3:
+[12/30 22:08:56     33s] @file 4: cd ../phy/db/part
+[12/30 22:08:56     33s] @@file 5: read_db ${TOP_NAME}.enc.dat
+[12/30 22:08:56     33s] **ERROR: (IMPIMEX-7331):	Cannot identify the top cell name. The design directory specified is not a valid directory generated by write_db command and therefore design can not be restored.
+[12/30 22:08:56     33s] 
+[12/30 22:08:56     33s] *** Summary of all messages that are not suppressed in this session:
+[12/30 22:08:56     33s] Severity  ID               Count  Summary                                  
+[12/30 22:08:56     33s] ERROR     IMPIMEX-7331         1  Cannot identify the top cell name. The d...
+[12/30 22:08:56     33s] *** Message Summary: 0 warning(s), 1 error(s)
+[12/30 22:08:56     33s] 
+[12/30 22:08:56     33s] **ERROR: (IMPSE-110):	File '../phy/scr/pnr_top.tcl' line 5: **ERROR: (IMPIMEX-7331):	Cannot identify the top cell name. The design directory specified is not a valid directory generated by write_db command and therefore design can not be restored.
+[12/30 22:08:56     33s] .
+[12/30 22:08:56     33s] #@ End verbose source ../phy/scr/pnr_top.tcl
+[12/30 22:08:56     33s] **ERROR: (IMPIMEX-7331):	Cannot identify the top cell name. The design directory specified is not a valid directory generated by write_db command and therefore design can not be restored.
+
+[12/30 22:08:56     33s] **ERROR: (IMPIMEX-7331):	Cannot identify the top cell name. The design directory specified is not a valid directory generated by write_db command and therefore design can not be restored.
+[12/30 22:08:56     33s] 
+[12/30 22:08:56     33s] @innovus 2> **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+source ../phy/scr/pnr_top.tcl
+[12/30 22:11:15     51s] **ERROR: (IMPSE-112):	File '../phy/scr/pnr_top.tcl': couldn't read file "../phy/scr/pnr_top.tcl": no such file or directory.
+[12/30 22:11:15     51s] 
+[12/30 22:11:15     51s] 
+[12/30 22:11:15     51s] @innovus 3> pwd
+/home/jacome/Desktop/IL2225_project_v2/SiLagoNN/phy/db/part
+[12/30 22:11:24     52s] @innovus 4> cd ..
+@innovus 5> cd ..
+@innovus 6> ls
+[12/30 22:11:33     53s] @innovus 7> cd ..
+@innovus 8> ls
+[12/30 22:11:36     53s] @innovus 9> cd task6
+@innovus 10> source ../phy/scr/pnr_top.tcl
+#@ Begin verbose source (pre): source ../phy/scr/pnr_top.tcl
+[12/30 22:11:42     54s] @file 1: source ../phy/scr/global_variables.tcl
+[12/30 22:11:42     54s] #@ Begin verbose source ../phy/scr/global_variables.tcl (pre)
+[12/30 22:11:42     54s] @file 1: set NUM_CPUS 8
+[12/30 22:11:42     54s] @file 2: #set the top name of the design
+[12/30 22:11:42     54s] @file 3: set TOP_NAME FLAT_drra_wrapper
+[12/30 22:11:42     54s] @file 4: set DRRATOP_NAME drra_wrapper
+[12/30 22:11:42     54s] @file 5:
+[12/30 22:11:42     54s] @file 6: # Directories
+[12/30 22:11:42     54s] @file 7: set OUTPUT_DIR "../phy/db"
+[12/30 22:11:42     54s] @file 8: set RPT_DIR    "../phy/flat_rpt"
+[12/30 22:11:42     54s] @file 9: set SCR_DIR    "../phy/scr"
+[12/30 22:11:42     54s] @file 10: set PART_DIR   "../phy/db/part/"
+[12/30 22:11:42     54s] @file 11: set SRC_DIR    "../syn/db/"
+[12/30 22:11:42     54s] @file 12:
+[12/30 22:11:42     54s] @file 13: set STDC_CCS_DIR "/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs"
+[12/30 22:11:42     54s] @file 14: set TECH_LEF_DIR  "/opt/pdk/gf22/V1.0_4.1/PlaceRoute/Innovus/Techfiles/10M_2Mx_4Cx_2Bx_2Jx_LB"
+[12/30 22:11:42     54s] @file 15: set STDC_LEF_DIR  "/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/lef"
+[12/30 22:11:42     54s] @file 16:
+[12/30 22:11:42     54s] @file 17: set LEF_FILE "${TECH_LEF_DIR}/22FDSOI_10M_2Mx_4Cx_2Bx_2Jx_LB_104cpp_tech.lef \
+[12/30 22:11:42     54s]         ${STDC_LEF_DIR}/GF22FDX_SC8T_104CPP_BASE_CSC28L.lef"
+[12/30 22:11:42     54s] @file 19:
+[12/30 22:11:42     54s] @file 20: set STDC_QRC_DIR  "/opt/pdk/gf22/V1.0_4.1/PEX/QRC/10M_2Mx_4Cx_2Bx_2Jx_LBthick"
+[12/30 22:11:42     54s] @file 21:
+[12/30 22:11:42     54s] @file 22: set OP_COD_LIB_BC "GF22FDX_SC8T_104CPP_BASE_CSC28L_FFG_0P72V_0P00V_0P00V_0P00V_M40C"
+[12/30 22:11:42     54s] @file 23: set OP_COD_LIB_TC "GF22FDX_SC8T_104CPP_BASE_CSC28L_TT_0P80V_0P00V_0P00V_0P00V_25C"
+[12/30 22:11:42     54s] @file 24: set OP_COD_LIB_WC "GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C"
+[12/30 22:11:42     54s] @file 25: set OP_COD_LIB_SRAM_BC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_TT_0P800V_0P800V_0P000V_0P000V_025C"
+[12/30 22:11:42     54s] @file 26: set OP_COD_LIB_SRAM_TC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_TT_0P800V_0P800V_0P000V_0P000V_025C"
+[12/30 22:11:42     54s] @file 27: set OP_COD_LIB_SRAM_WC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_SSG_0P720V_0P720V_0P000V_0P000V_125C"
+[12/30 22:11:42     54s] @file 28: set OP_COD_LIB_IO_BC "dwc_io_gf22fdx_1p8v_gpio_i_ull_ffg0p945v1p320vm40c_funccmin"
+[12/30 22:11:42     54s] @file 29: set OP_COD_LIB_IO_TC "dwc_io_gf22fdx_1p8v_gpio_i_ull_tt0p800v1p500v25c"
+[12/30 22:11:42     54s] @file 30: set OP_COD_LIB_IO_WC "dwc_io_gf22fdx_1p8v_gpio_i_ull_ssg0p720v1p620v125c_funccmax"
+[12/30 22:11:42     54s] @file 31: set LIB_FILES_BC "${STDC_CCS_DIR}/${OP_COD_LIB_BC}_ccs.lib.gz"
+[12/30 22:11:42     54s] @file 32: set LIB_FILES_TC "${STDC_CCS_DIR}/${OP_COD_LIB_TC}_ccs.lib.gz"
+[12/30 22:11:42     54s] @file 33: set LIB_FILES_WC "${STDC_CCS_DIR}/${OP_COD_LIB_WC}_ccs.lib.gz"
+[12/30 22:11:42     54s] @file 34: set OP_COD_BC "FFG_0P72V_0P00V_0P00V_0P00V_M40C"
+[12/30 22:11:42     54s] @file 35: set OP_COD_TC "TT_0P80V_0P00V_0P00V_0P00V_25C"
+[12/30 22:11:42     54s] @file 36: set OP_COD_WC "SSG_0P72V_0P00V_0P00V_0P00V_125C"
+[12/30 22:11:42     54s] @file 37: set OP_COD_SRAM_BC "TT_0P800V_0P800V_0P000V_0P000V_025C"
+[12/30 22:11:42     54s] @file 38: set OP_COD_SRAM_TC "TT_0P800V_0P800V_0P000V_0P000V_025C"
+[12/30 22:11:42     54s] @file 39: set OP_COD_SRAM_WC "SSG_0P720V_0P720V_0P000V_0P000V_125C"
+[12/30 22:11:42     54s] @file 40: set OP_COD_IO_BC "ffg0p945v1p320vm40c"
+[12/30 22:11:42     54s] @file 41: set OP_COD_IO_TC "TT_0P8_1P5_25"
+[12/30 22:11:42     54s] @file 42: set OP_COD_IO_WC "SSG_0P59_1P08_125"
+[12/30 22:11:42     54s] @file 43: set QRC_FILE_BC "${STDC_QRC_DIR}/FuncRCminDP/qrcTechFile"
+[12/30 22:11:42     54s] @file 44: set QRC_FILE_TC "${STDC_QRC_DIR}/nominal/qrcTechFile"
+[12/30 22:11:42     54s] @file 45: set QRC_FILE_WC "${STDC_QRC_DIR}/FuncRCmaxDP/qrcTechFile"
+[12/30 22:11:42     54s] @file 46:
+[12/30 22:11:42     54s] @file 47: set MMMC_FILE         "${SCR_DIR}/mmmc.tcl"
+[12/30 22:11:42     54s] @file 48: set NETLIST_FILE       "${SRC_DIR}/${TOP_NAME}.v"
+[12/30 22:11:42     54s] @file 49: set SDC_FILES          "${SRC_DIR}/${TOP_NAME}.sdc"
+[12/30 22:11:42     54s] #@ End verbose source ../phy/scr/global_variables.tcl
+[12/30 22:11:42     54s] @file 2: source ../phy/scr/design_variables.tcl
+[12/30 22:11:42     54s] #@ Begin verbose source ../phy/scr/design_variables.tcl (pre)
+[12/30 22:11:42     54s] @file 1: #parititon instantiation labels
+[12/30 22:11:42     54s] @file 2: set partition_hinst_list {
+[12/30 22:11:42     54s]     Silago_top_l_corner_inst_0_0 \
+[12/30 22:11:42     54s]     Silago_top_inst_1_0 \
+[12/30 22:11:42     54s]     Silago_top_inst_2_0 \
+[12/30 22:11:42     54s]     Silago_top_inst_3_0 \
+[12/30 22:11:42     54s]     Silago_top_inst_4_0 \
+[12/30 22:11:42     54s]     Silago_top_inst_5_0 \
+[12/30 22:11:42     54s]     Silago_top_inst_6_0 \
+[12/30 22:11:42     54s]     Silago_top_r_corner_inst_7_0 \
+[12/30 22:11:42     54s]     Silago_bot_l_corner_inst_0_1 \
+[12/30 22:11:42     54s]     Silago_bot_inst_1_1 \
+[12/30 22:11:42     54s]     Silago_bot_inst_2_1 \
+[12/30 22:11:42     54s]     Silago_bot_inst_3_1 \
+[12/30 22:11:42     54s]     Silago_bot_inst_4_1 \
+[12/30 22:11:42     54s]     Silago_bot_inst_5_1 \
+[12/30 22:11:42     54s]     Silago_bot_inst_6_1 \
+[12/30 22:11:42     54s]     Silago_bot_r_corner_inst_7_1
+[12/30 22:11:42     54s] }
+[12/30 22:11:42     54s] @file 20:
+[12/30 22:11:42     54s] @file 21: #partition module names from RTL
+[12/30 22:11:42     54s] @file 22: set partition_module_list {
+[12/30 22:11:42     54s]     Silago_top_left_corner \
+[12/30 22:11:42     54s]     Silago_top_0 \
+[12/30 22:11:42     54s]     Silago_top_1 \
+[12/30 22:11:42     54s]     Silago_top_2 \
+[12/30 22:11:42     54s]     Silago_top_3 \
+[12/30 22:11:42     54s]     Silago_top_4 \
+[12/30 22:11:42     54s]     Silago_top_5 \
+[12/30 22:11:42     54s]     Silago_top_right_corner \
+[12/30 22:11:42     54s]     Silago_bot_left_corner \
+[12/30 22:11:42     54s]     Silago_bot_0 \
+[12/30 22:11:42     54s]     Silago_bot_1 \
+[12/30 22:11:42     54s]     Silago_bot_2 \
+[12/30 22:11:42     54s]     Silago_bot_3 \
+[12/30 22:11:42     54s]     Silago_bot_4 \
+[12/30 22:11:42     54s]     Silago_bot_5 \
+[12/30 22:11:42     54s]     Silago_bot_right_corner
+[12/30 22:11:42     54s] }
+[12/30 22:11:42     54s] #@ End verbose source ../phy/scr/design_variables.tcl
+[12/30 22:11:42     54s] @file 3:
+[12/30 22:11:42     54s] @file 4: cd ../phy/db/part
+[12/30 22:11:42     54s] @@file 5: read_db ${DRRATOP_NAME}.enc.dat
+[12/30 22:11:42     54s] 
+[12/30 22:11:42     54s] **INFO(INTERRUPT): The interrupted design can be viewed in its current state but should not be used to continue the flow.
+[12/30 22:11:42     54s]    1) Ignore and continue.
+[12/30 22:11:42     54s]    2) Quit.
+[12/30 22:11:42     54s]    3) Finish current command but interrupt TCL script.
+[12/30 22:11:42     54s]   Type a number 1-3 and press ENTER:  2
+[12/30 22:12:00     54s] Innovus terminated by user interrupt.
+[12/30 22:12:00     54s] 
+[12/30 22:12:00     54s] *** Memory Usage v#1 (Current mem = 1067.016M, initial mem = 494.961M) ***
+[12/30 22:12:00     54s] 
+[12/30 22:12:00     54s] *** Summary of all messages that are not suppressed in this session:
+[12/30 22:12:00     54s] Severity  ID               Count  Summary                                  
+[12/30 22:12:00     54s] ERROR     IMPSE-110            1  File '%s' line %s: %s.                   
+[12/30 22:12:00     54s] ERROR     IMPSE-112            1  File '%s': %s.                           
+[12/30 22:12:00     54s] WARNING   IMPOPT-801           1  Genus executable not found in PATH%s. In...
+[12/30 22:12:00     54s] ERROR     IMPIMEX-7331         2  Cannot identify the top cell name. The d...
+[12/30 22:12:00     54s] *** Message Summary: 1 warning(s), 4 error(s)
+[12/30 22:12:00     54s] 
+[12/30 22:12:00     54s] --- Ending "Innovus" (totcpu=0:00:54.5, real=0:04:14, mem=1067.0M) ---

@@ -1,0 +1,137 @@
+Warning: Unable to resolve reference 'InputMux_16_5_11' in 'switchbox_16_5'. (LINK-5)
+Warning: Unable to resolve reference 'InputMux_16_5_10' in 'switchbox_16_5'. (LINK-5)
+Warning: Unable to resolve reference 'InputMux_16_5_9' in 'switchbox_16_5'. (LINK-5)
+Warning: Unable to resolve reference 'InputMux_16_5_8' in 'switchbox_16_5'. (LINK-5)
+Warning: Unable to resolve reference 'InputMux_16_5_7' in 'switchbox_16_5'. (LINK-5)
+Warning: Unable to resolve reference 'InputMux_16_5_6' in 'switchbox_16_5'. (LINK-5)
+Warning: Unable to resolve reference 'InputMux_16_5_5' in 'switchbox_16_5'. (LINK-5)
+Warning: Unable to resolve reference 'InputMux_16_5_4' in 'switchbox_16_5'. (LINK-5)
+Warning: Unable to resolve reference 'InputMux_16_5_3' in 'switchbox_16_5'. (LINK-5)
+Warning: Unable to resolve reference 'InputMux_16_5_2' in 'switchbox_16_5'. (LINK-5)
+Warning: Unable to resolve reference 'InputMux_16_5_1' in 'switchbox_16_5'. (LINK-5)
+Warning: Unable to resolve reference 'InputMux_16_5_0' in 'switchbox_16_5'. (LINK-5)
+Warning: Unable to resolve reference 'twos_compl_16_4' in 'DPU'. (LINK-5)
+Warning: Unable to resolve reference 'twos_compl_16_3' in 'DPU'. (LINK-5)
+Warning: Unable to resolve reference 'twos_compl_16_2' in 'DPU'. (LINK-5)
+Warning: Unable to resolve reference 'twos_compl_16_1' in 'DPU'. (LINK-5)
+Warning: Unable to resolve reference 'Sat_n_round_1' in 'DPU'. (LINK-5)
+Warning: Unable to resolve reference 'Sat_n_round_0' in 'DPU'. (LINK-5)
+Warning: Unable to resolve reference 'shadowReg_AGU_5' in 'register_file_top'. (LINK-5)
+Warning: Unable to resolve reference 'shadowReg_AGU_4' in 'register_file_top'. (LINK-5)
+Warning: Unable to resolve reference 'shadowReg_AGU_3' in 'register_file_top'. (LINK-5)
+Warning: Unable to resolve reference 'shadowReg_AGU_2' in 'register_file_top'. (LINK-5)
+Warning: Unable to resolve reference 'shadowReg_AGU_1' in 'register_file_top'. (LINK-5)
+Warning: Unable to resolve reference 'shadowReg_AGU_0' in 'register_file_top'. (LINK-5)
+Warning: Unable to resolve reference 'AGU_3' in 'register_file_top'. (LINK-5)
+Warning: Unable to resolve reference 'AGU_2' in 'register_file_top'. (LINK-5)
+Warning: Unable to resolve reference 'AGU_RFblock_1' in 'register_file_top'. (LINK-5)
+Warning: Unable to resolve reference 'AGU_1' in 'register_file_top'. (LINK-5)
+Warning: Unable to resolve reference 'AGU_0' in 'register_file_top'. (LINK-5)
+Warning: Unable to resolve reference 'AGU_RFblock_0' in 'register_file_top'. (LINK-5)
+Warning: Unable to resolve reference 'twos_compl_16_0' in 'NACU_0_0_1'. (LINK-5)
+Warning: Unable to resolve reference 'conf_mul_Beh_16_2_1' in 'NACU_0_0_1'. (LINK-5)
+Warning: Unable to resolve reference 'adder_nbits_32_2_1' in 'NACU_0_0_1'. (LINK-5)
+Warning: Unable to resolve reference 'Saturation_Unit_1' in 'NACU_0_0_1'. (LINK-5)
+Warning: Unable to resolve reference 'Maxmin_Unit_16_1' in 'NACU_0_0_1'. (LINK-5)
+Warning: Unable to resolve reference 'conf_mul_Beh_16_2_0' in 'NACU_0_0_0'. (LINK-5)
+Warning: Unable to resolve reference 'adder_nbits_32_2_0' in 'NACU_0_0_0'. (LINK-5)
+Warning: Unable to resolve reference 'Saturation_Unit_0' in 'NACU_0_0_0'. (LINK-5)
+Warning: Unable to resolve reference 'Maxmin_Unit_16_0' in 'NACU_0_0_0'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_63' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_62' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_61' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_60' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_59' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_58' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_57' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_56' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_55' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_54' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_53' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_52' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_51' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_50' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_49' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_48' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_47' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_46' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_45' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_44' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_43' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_42' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_41' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_40' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_39' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_38' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_37' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_36' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_35' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_34' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_33' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_32' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_31' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_30' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_29' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_28' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_27' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_26' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_25' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_24' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_23' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_22' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_21' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_20' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_19' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_18' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_17' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_16' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_15' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_14' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_13' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_12' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_11' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_10' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_9' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_8' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_7' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_6' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_5' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_4' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_3' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_2' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_1' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'register_row_0' in 'register_file'. (LINK-5)
+Warning: Unable to resolve reference 'priorityMux_2_1_4_4_4_1' in 'autoloop'. (LINK-5)
+Warning: Unable to resolve reference 'priorityMux_2_1_4_4_4_0' in 'autoloop'. (LINK-5)
+ 
+****************************************
+Report : area
+Design : drra_wrapper
+Version: V-2023.12-SP4
+Date   : Mon Dec 22 12:40:15 2025
+****************************************
+
+Information: Updating design information... (UID-85)
+Warning: Design 'drra_wrapper' contains 6 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Library(s) Used:
+
+    GF22FDX_SC8T_104CPP_BASE_CSC28L_FFG_0P72V_0P00V_0P00V_0P00V_M40C (File: /opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs_db/GF22FDX_SC8T_104CPP_BASE_CSC28L_FFG_0P72V_0P00V_0P00V_0P00V_M40C_ccs.db)
+
+Number of ports:                       156541
+Number of nets:                        593549
+Number of cells:                       411503
+Number of combinational cells:         361600
+Number of sequential cells:             49311
+Number of macros/black boxes:               0
+Number of buf/inv:                     102876
+Number of references:                       7
+
+Combinational area:             142579.905992
+Buf/Inv area:                    15732.121643
+Noncombinational area:           80593.444097
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                223173.350089
+Total area:                 undefined
+1

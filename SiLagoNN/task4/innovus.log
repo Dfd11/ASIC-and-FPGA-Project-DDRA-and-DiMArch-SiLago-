@@ -1,0 +1,201 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.19-s058_1, built Thu Apr 4 09:59:17 PDT 2024
+Options:	-stylus -stylus 
+Date:		Tue Dec 23 11:44:51 2025
+Host:		il2225ht25_jacome (x86_64 w/Linux 5.15.0-164-generic) (12cores*48cpus*Intel(R) Xeon(R) CPU E7-8857 v2 @ 3.00GHz 30720KB)
+OS:		Rocky Linux 8.10 (Green Obsidian)
+
+License:
+		[11:44:51.443780] Configured Lic search path (21.01-s002): 27020@lic04.ug.kth.se:27020@lic05.ug.kth.se:3000@lic08.ug.kth.se:29000@lic06.ug.kth.se
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+
+
+**WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+Create and set the environment variable TMPDIR to /tmp/innovus_temp_31816_il2225ht25_jacome_jacome_Jqq3t2.
+
+Change the soft stacksize limit to 0.2%RAM (6192 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+@innovus 1> source ../phy/scr/read_design.tcl
+#@ Begin verbose source (pre): source ../phy/scr/read_design.tcl
+@file 1: #1. source global variables
+@file 2: source ../phy/scr/global_variables.tcl
+#@ Begin verbose source ../phy/scr/global_variables.tcl (pre)
+@file 1: set NUM_CPUS 8
+@file 2: #set the top name of the design
+@file 3: set TOP_NAME drra_wrapper
+@file 4:
+@file 5: # Directories
+@file 6: set OUTPUT_DIR "../phy/db"
+@file 7: set RPT_DIR    "../phy/rpt"
+@file 8: set SCR_DIR    "../phy/scr"
+@file 9: set PART_DIR   "../phy/db/part/"
+@file 10: set SRC_DIR    "../syn/db/"
+@file 11:
+@file 12: set STDC_CCS_DIR "/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs"
+@file 13: set TECH_LEF_DIR  "/opt/pdk/gf22/V1.0_4.1/PlaceRoute/Innovus/Techfiles/10M_2Mx_4Cx_2Bx_2Jx_LB"
+@file 14: set STDC_LEF_DIR  "/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/lef"
+@file 15:
+@file 16: set LEF_FILE "${TECH_LEF_DIR}/22FDSOI_10M_2Mx_4Cx_2Bx_2Jx_LB_104cpp_tech.lef \
+        ${STDC_LEF_DIR}/GF22FDX_SC8T_104CPP_BASE_CSC28L.lef"
+@file 18:
+@file 19: set STDC_QRC_DIR  "/opt/pdk/gf22/V1.0_4.1/PEX/QRC/10M_2Mx_4Cx_2Bx_2Jx_LBthick"
+@file 20:
+@file 21: set OP_COD_LIB_BC "GF22FDX_SC8T_104CPP_BASE_CSC28L_FFG_0P72V_0P00V_0P00V_0P00V_M40C"
+@file 22: set OP_COD_LIB_TC "GF22FDX_SC8T_104CPP_BASE_CSC28L_TT_0P80V_0P00V_0P00V_0P00V_25C"
+@file 23: set OP_COD_LIB_WC "GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C"
+@file 24: set OP_COD_LIB_SRAM_BC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_TT_0P800V_0P800V_0P000V_0P000V_025C"
+@file 25: set OP_COD_LIB_SRAM_TC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_TT_0P800V_0P800V_0P000V_0P000V_025C"
+@file 26: set OP_COD_LIB_SRAM_WC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_SSG_0P720V_0P720V_0P000V_0P000V_125C"
+@file 27: set OP_COD_LIB_IO_BC "dwc_io_gf22fdx_1p8v_gpio_i_ull_ffg0p945v1p320vm40c_funccmin"
+@file 28: set OP_COD_LIB_IO_TC "dwc_io_gf22fdx_1p8v_gpio_i_ull_tt0p800v1p500v25c"
+@file 29: set OP_COD_LIB_IO_WC "dwc_io_gf22fdx_1p8v_gpio_i_ull_ssg0p720v1p620v125c_funccmax"
+@file 30: set LIB_FILES_BC "${STDC_CCS_DIR}/${OP_COD_LIB_BC}_ccs.lib.gz"
+@file 31: set LIB_FILES_TC "${STDC_CCS_DIR}/${OP_COD_LIB_TC}_ccs.lib.gz"
+@file 32: set LIB_FILES_WC "${STDC_CCS_DIR}/${OP_COD_LIB_WC}_ccs.lib.gz"
+@file 33: set OP_COD_BC "FFG_0P72V_0P00V_0P00V_0P00V_M40C"
+@file 34: set OP_COD_TC "TT_0P80V_0P00V_0P00V_0P00V_25C"
+@file 35: set OP_COD_WC "SSG_0P72V_0P00V_0P00V_0P00V_125C"
+@file 36: set OP_COD_SRAM_BC "TT_0P800V_0P800V_0P000V_0P000V_025C"
+@file 37: set OP_COD_SRAM_TC "TT_0P800V_0P800V_0P000V_0P000V_025C"
+@file 38: set OP_COD_SRAM_WC "SSG_0P720V_0P720V_0P000V_0P000V_125C"
+@file 39: set OP_COD_IO_BC "ffg0p945v1p320vm40c"
+@file 40: set OP_COD_IO_TC "TT_0P8_1P5_25"
+@file 41: set OP_COD_IO_WC "SSG_0P59_1P08_125"
+@file 42: set QRC_FILE_BC "${STDC_QRC_DIR}/FuncRCminDP/qrcTechFile"
+@file 43: set QRC_FILE_TC "${STDC_QRC_DIR}/nominal/qrcTechFile"
+@file 44: set QRC_FILE_WC "${STDC_QRC_DIR}/FuncRCmaxDP/qrcTechFile"
+@file 45:
+@file 46: set MMMC_FILE         "${SCR_DIR}/mmmc.tcl"
+@file 47: set NETLIST_FILE       "${SRC_DIR}/${TOP_NAME}.v"
+@file 48: set SDC_FILES          "${SRC_DIR}/${TOP_NAME}.sdc"
+#@ End verbose source ../phy/scr/global_variables.tcl
+@file 3: puts "INFO_DFD:Done with Global Variables"
+INFO_DFD:Done with Global Variables
+@file 4: #2. source design variables
+@@file 5: set_multi_cpu_usage -local_cpu ${NUM_CPUS} -cpu_per_remote_host 1 -remote_host 0 -keep_license true
+Setting releaseMultiCpuLicenseMode to false.
+@@file 6: set_distributed_hosts -local
+The timeout for a remote job to respond is 3600 seconds.
+Submit command for task runs will be: local
+@file 7: puts "INFO_DFD:Done with Local Variables"
+INFO_DFD:Done with Local Variables
+@file 8: #3. set vdd net
+@@file 9: set_db init_power_nets {VDD}
+@file 10: #4. set vss net
+@@file 11: set_db init_ground_nets {VSS}
+@file 12: #5. read mmmc file
+@file 13: puts "INFO_DFD:Reading MMC File"
+INFO_DFD:Reading MMC File
+@@file 14: read_mmmc ${MMMC_FILE}
+#@ Begin verbose source ../phy/scr/mmmc.tcl (pre)
+@@file 1: create_library_set -name LIBSET_TC -timing [list $LIB_FILES_TC]
+@@file 2: create_library_set -name LIBSET_BC -timing [list $LIB_FILES_BC]
+@@file 3: create_library_set -name LIBSET_WC -timing [list $LIB_FILES_WC]
+@@file 4: create_rc_corner \
+    -name rc_best \
+    -pre_route_res 1 \
+    -post_route_res 1 \
+    -pre_route_cap 1 \
+    -post_route_cap 1 \
+    -post_route_cross_cap 1 \
+    -post_route_clock_res 0 \
+    -post_route_clock_cap 0 \
+    -qrc_tech $QRC_FILE_BC 
+@@file 14: create_rc_corner -name rc_typ \
+    -pre_route_res 1 \
+    -post_route_res 1 \
+    -pre_route_cap 1 \
+    -post_route_cap 1 \
+    -post_route_cross_cap 1 \
+    -post_route_clock_res 0 \
+    -post_route_clock_cap 0 \
+    -qrc_tech $QRC_FILE_TC 
+@@file 23: create_rc_corner -name rc_worst \
+    -pre_route_res 1 \
+    -post_route_res 1 \
+    -pre_route_cap 1 \
+    -post_route_cap 1 \
+    -post_route_cross_cap 1 \
+    -post_route_clock_res 0 \
+    -post_route_clock_cap 0 \
+    -qrc_tech $QRC_FILE_WC
+@@file 32: create_timing_condition \
+    -name cond_best \
+    -library_set LIBSET_BC \
+    -opcond $OP_COD_BC \
+    -opcond_library $OP_COD_LIB_BC
+@@file 37: create_timing_condition \
+    -name cond_typ \
+    -library_set LIBSET_TC \
+    -opcond $OP_COD_TC \
+    -opcond_library $OP_COD_LIB_TC
+@@file 42: create_timing_condition \
+    -name cond_worst \
+    -library_set LIBSET_WC \
+    -opcond $OP_COD_WC \
+    -opcond_library $OP_COD_LIB_WC
+@@file 47: create_delay_corner \
+    -name WC_dc \
+    -rc_corner rc_worst \
+    -timing_condition {cond_worst}
+@@file 51: create_delay_corner \
+    -name TC_dc \
+    -rc_corner rc_typ \
+    -timing_condition {cond_typ}
+@@file 55: create_delay_corner \
+    -name BC_dc \
+    -rc_corner rc_best \
+    -timing_condition {cond_best}
+@@file 59: create_constraint_mode -name functional -sdc_files $SDC_FILES
+**ERROR: (TCLCMD-989):	cannot open SDC file '../syn/db//drra_wrapper.sdc' for mode 'functional'
+**ERROR: (IMPSE-110):	File '../phy/scr/mmmc.tcl' line 59: errors out.
+#@ End verbose source ../phy/scr/mmmc.tcl
+
+    while executing
+"create_constraint_mode -name functional -sdc_files $SDC_FILES"
+    (file "../phy/scr/mmmc.tcl" line 59)
+    invoked from within
+"::se_source_orig ../phy/scr/mmmc.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel [concat ::se_source_orig $args]"
+    invoked from within
+"if {[::SE::source_verbose_file_state $file_name] == 1} {
+              ::SE::source_verbose_start $file_name
+              set st [uplevel [concat ::s..."
+    invoked from within
+"if {$useTclVerbose} {
+          # use tcl internal method
+          set st ""
+          if {[::SE::source_verbose_file_state $file_name] == 1} {
+     ..."
+    invoked from within
+"if {$largeFile == 1} {
+    if {$enableVerbose == 0 && [::SE::isEchoFile] == 1} {
+      $putCmd "Sourcing $file_name"
+    }
+    set st [uplevel [concat..."
+    (procedure "source" line 163)
+    invoked from within
+"source ../phy/scr/mmmc.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel #0 {source ../phy/scr/mmmc.tcl}"
+**ERROR: (IMPSE-110):	File '../phy/scr/read_design.tcl' line 14: errors out.
+#@ End verbose source ../phy/scr/read_design.tcl
+
+
+@innovus 2> **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+Innovus terminated by user interrupt.
+
+*** Memory Usage v#1 (Current mem = 1065.383M, initial mem = 494.961M) ***
+*** Message Summary: 1 warning(s), 3 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:58.1, real=0:04:59, mem=1065.4M) ---

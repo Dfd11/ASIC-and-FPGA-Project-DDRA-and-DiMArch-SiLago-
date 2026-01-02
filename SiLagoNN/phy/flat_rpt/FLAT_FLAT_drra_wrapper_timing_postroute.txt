@@ -1,0 +1,6 @@
+Switching SI Aware to true by default in postroute mode   
+AAE_INFO: switching -siAware from false to true ...
+AAE_INFO: The setting is changed from false to true in setDelayCalMode -SIAware
+
+**ERROR: (IMPOPT-7027):	The analysis mode needs to be set to 'OCV' in post route stage for post route timing & optimization. To avoid this message & allow post route steps to proceed set 'set_db timing_analysis_type ocv'. It is also recommended to set 'timing_analysis_cppr both' alongside this to remove clock re-convergence pessimism for both setup and hold modes.
+

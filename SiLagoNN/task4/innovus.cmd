@@ -1,0 +1,130 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Tue Dec 23 11:45:13 2025                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.19-s058_1 (64bit) 04/04/2024 09:59 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.19-s058_1 NR231113-0413/21_19-UB (database version 18.20.605) {superthreading v2.17}
+#@(#)CDS: AAE 21.19-s004 (64bit) 04/04/2024 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.19-s010_1 () Mar 27 2024 01:55:37 ( )
+#@(#)CDS: SYNTECH 21.19-s002_1 () Sep  6 2023 22:17:00 ( )
+#@(#)CDS: CPE v21.19-s026
+#@(#)CDS: IQuantus/TQuantus 21.1.1-s966 (64bit) Wed Mar 8 10:22:20 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+
+#@ source ../phy/scr/read_design.tcl
+#@ Begin verbose source (pre): source ../phy/scr/read_design.tcl
+#@ source ../phy/scr/global_variables.tcl
+#@ Begin verbose source ../phy/scr/global_variables.tcl (pre)
+set NUM_CPUS 8
+set TOP_NAME drra_wrapper
+set OUTPUT_DIR "../phy/db"
+set RPT_DIR    "../phy/rpt"
+set SCR_DIR    "../phy/scr"
+set PART_DIR   "../phy/db/part/"
+set SRC_DIR    "../syn/db/"
+set STDC_CCS_DIR "/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/model/timing/ccs"
+set TECH_LEF_DIR  "/opt/pdk/gf22/V1.0_4.1/PlaceRoute/Innovus/Techfiles/10M_2Mx_4Cx_2Bx_2Jx_LB"
+set STDC_LEF_DIR  "/opt/pdk/gfip/22FDX-EXT/GF22FDX_SC8T_104CPP_BASE_CSC28L_FDK_RELV06R60/lef"
+set LEF_FILE "${TECH_LEF_DIR}/22FDSOI_10M_2Mx_4Cx_2Bx_2Jx_LB_104cpp_tech.lef \
+        ${STDC_LEF_DIR}/GF22FDX_SC8T_104CPP_BASE_CSC28L.lef"
+set STDC_QRC_DIR  "/opt/pdk/gf22/V1.0_4.1/PEX/QRC/10M_2Mx_4Cx_2Bx_2Jx_LBthick"
+set OP_COD_LIB_BC "GF22FDX_SC8T_104CPP_BASE_CSC28L_FFG_0P72V_0P00V_0P00V_0P00V_M40C"
+set OP_COD_LIB_TC "GF22FDX_SC8T_104CPP_BASE_CSC28L_TT_0P80V_0P00V_0P00V_0P00V_25C"
+set OP_COD_LIB_WC "GF22FDX_SC8T_104CPP_BASE_CSC28L_SSG_0P72V_0P00V_0P00V_0P00V_125C"
+set OP_COD_LIB_SRAM_BC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_TT_0P800V_0P800V_0P000V_0P000V_025C"
+set OP_COD_LIB_SRAM_TC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_TT_0P800V_0P800V_0P000V_0P000V_025C"
+set OP_COD_LIB_SRAM_WC "IN22FDX_S1DV_NFVG_W00064B256M04C128_116cpp_SSG_0P720V_0P720V_0P000V_0P000V_125C"
+set OP_COD_LIB_IO_BC "dwc_io_gf22fdx_1p8v_gpio_i_ull_ffg0p945v1p320vm40c_funccmin"
+set OP_COD_LIB_IO_TC "dwc_io_gf22fdx_1p8v_gpio_i_ull_tt0p800v1p500v25c"
+set OP_COD_LIB_IO_WC "dwc_io_gf22fdx_1p8v_gpio_i_ull_ssg0p720v1p620v125c_funccmax"
+set LIB_FILES_BC "${STDC_CCS_DIR}/${OP_COD_LIB_BC}_ccs.lib.gz"
+set LIB_FILES_TC "${STDC_CCS_DIR}/${OP_COD_LIB_TC}_ccs.lib.gz"
+set LIB_FILES_WC "${STDC_CCS_DIR}/${OP_COD_LIB_WC}_ccs.lib.gz"
+set OP_COD_BC "FFG_0P72V_0P00V_0P00V_0P00V_M40C"
+set OP_COD_TC "TT_0P80V_0P00V_0P00V_0P00V_25C"
+set OP_COD_WC "SSG_0P72V_0P00V_0P00V_0P00V_125C"
+set OP_COD_SRAM_BC "TT_0P800V_0P800V_0P000V_0P000V_025C"
+set OP_COD_SRAM_TC "TT_0P800V_0P800V_0P000V_0P000V_025C"
+set OP_COD_SRAM_WC "SSG_0P720V_0P720V_0P000V_0P000V_125C"
+set OP_COD_IO_BC "ffg0p945v1p320vm40c"
+set OP_COD_IO_TC "TT_0P8_1P5_25"
+set OP_COD_IO_WC "SSG_0P59_1P08_125"
+set QRC_FILE_BC "${STDC_QRC_DIR}/FuncRCminDP/qrcTechFile"
+set QRC_FILE_TC "${STDC_QRC_DIR}/nominal/qrcTechFile"
+set QRC_FILE_WC "${STDC_QRC_DIR}/FuncRCmaxDP/qrcTechFile"
+set MMMC_FILE         "${SCR_DIR}/mmmc.tcl"
+set NETLIST_FILE       "${SRC_DIR}/${TOP_NAME}.v"
+set SDC_FILES          "${SRC_DIR}/${TOP_NAME}.sdc"
+#@ End verbose source ../phy/scr/global_variables.tcl
+puts "INFO_DFD:Done with Global Variables"
+set_multi_cpu_usage -local_cpu ${NUM_CPUS} -cpu_per_remote_host 1 -remote_host 0 -keep_license true
+set_distributed_hosts -local
+puts "INFO_DFD:Done with Local Variables"
+set_db init_power_nets {VDD}
+set_db init_ground_nets {VSS}
+puts "INFO_DFD:Reading MMC File"
+read_mmmc ${MMMC_FILE}
+#@ Begin verbose source ../phy/scr/mmmc.tcl (pre)
+create_library_set -name LIBSET_TC -timing [list $LIB_FILES_TC]
+create_library_set -name LIBSET_BC -timing [list $LIB_FILES_BC]
+create_library_set -name LIBSET_WC -timing [list $LIB_FILES_WC]
+create_rc_corner \
+    -name rc_best \
+    -pre_route_res 1 \
+    -post_route_res 1 \
+    -pre_route_cap 1 \
+    -post_route_cap 1 \
+    -post_route_cross_cap 1 \
+    -post_route_clock_res 0 \
+    -post_route_clock_cap 0 \
+    -qrc_tech $QRC_FILE_BC 
+create_rc_corner -name rc_typ \
+    -pre_route_res 1 \
+    -post_route_res 1 \
+    -pre_route_cap 1 \
+    -post_route_cap 1 \
+    -post_route_cross_cap 1 \
+    -post_route_clock_res 0 \
+    -post_route_clock_cap 0 \
+    -qrc_tech $QRC_FILE_TC 
+create_rc_corner -name rc_worst \
+    -pre_route_res 1 \
+    -post_route_res 1 \
+    -pre_route_cap 1 \
+    -post_route_cap 1 \
+    -post_route_cross_cap 1 \
+    -post_route_clock_res 0 \
+    -post_route_clock_cap 0 \
+    -qrc_tech $QRC_FILE_WC
+create_timing_condition \
+    -name cond_best \
+    -library_set LIBSET_BC \
+    -opcond $OP_COD_BC \
+    -opcond_library $OP_COD_LIB_BC
+create_timing_condition \
+    -name cond_typ \
+    -library_set LIBSET_TC \
+    -opcond $OP_COD_TC \
+    -opcond_library $OP_COD_LIB_TC
+create_timing_condition \
+    -name cond_worst \
+    -library_set LIBSET_WC \
+    -opcond $OP_COD_WC \
+    -opcond_library $OP_COD_LIB_WC
+create_delay_corner \
+    -name WC_dc \
+    -rc_corner rc_worst \
+    -timing_condition {cond_worst}
+create_delay_corner \
+    -name TC_dc \
+    -rc_corner rc_typ \
+    -timing_condition {cond_typ}
+create_delay_corner \
+    -name BC_dc \
+    -rc_corner rc_best \
+    -timing_condition {cond_best}
+create_constraint_mode -name functional -sdc_files $SDC_FILES
+#@ End verbose source ../phy/scr/mmmc.tcl
+#@ End verbose source ../phy/scr/read_design.tcl

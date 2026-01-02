@@ -1,5 +1,5 @@
 #1. source global variables
-source ../phy/scr/global_variables.tcl
+source ../phy/scr/FLAT_global_variables.tcl
 puts "INFO_DFD:Done with Global Variables"
 #2. source design variables
 set_multi_cpu_usage -local_cpu ${NUM_CPUS} -cpu_per_remote_host 1 -remote_host 0 -keep_license true

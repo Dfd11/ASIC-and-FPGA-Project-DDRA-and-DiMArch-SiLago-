@@ -1,10 +1,11 @@
 set NUM_CPUS 8
 #set the top name of the design
-set TOP_NAME drra_wrapper
+set TOP_NAME FLAT_drra_wrapper
+set DRRATOP_NAME drra_wrapper
 
 # Directories
 set OUTPUT_DIR "../phy/db"
-set RPT_DIR    "../phy/rpt"
+set RPT_DIR    "../phy/flat_rpt"
 set SCR_DIR    "../phy/scr"
 set PART_DIR   "../phy/db/part/"
 set SRC_DIR    "../syn/db/"

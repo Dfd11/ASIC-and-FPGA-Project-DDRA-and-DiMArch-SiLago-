@@ -1,7 +1,11 @@
 vlib work
+vlib dware
 
-set SOURCE_DIR ./rtl;
-        
+set TOP_NAME silagonn
+  
+set SOURCE_DIR ../rtl;           # rtl code that should be synthesised
+set TB_DIR ../tb;                # testbench directory
+
 #1. Compile dware libraries into "dware" and the design into "work"
 if {![file exists "DWARE"]} {
         vlib DWARE
@@ -11,7 +15,7 @@ if {![file exists "DWARE"]} {
 vmap DWARE ./DWARE
 
 
-# Compile parallel_fir design into "work"
+# Compile silagonn design into "dware" and "work"
 set hierarchy_files [split [read [open ${SOURCE_DIR}/dware_hierarchy_verilog.txt r]] "\n"]
 
 foreach filename [lrange ${hierarchy_files} 0 end-1] {
@@ -43,11 +47,10 @@ foreach filename [lrange ${hierarchy_files} 0 end-1] {
 }
 
 #2. Compile testbench. 
-vcom -2008 -work work ./tb/vec_add/const_package.vhd
-vcom -2008 -work work ./tb/vec_add/testbench.vhd
+vcom -2008 -work work ../tb/vec_add/const_package.vhd
+vcom -2008 -work work ../tb/vec_add/testbench.vhd
 
 #3. Run simulation. 
 vsim -voptargs=+acc work.testbench
-do ./tb/vec_add/wave.do
+do ../tb/vec_add/wave.do
 run 5000ns;
-

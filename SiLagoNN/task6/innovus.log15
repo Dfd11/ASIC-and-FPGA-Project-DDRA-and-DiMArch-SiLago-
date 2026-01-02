@@ -1,0 +1,92 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.19-s058_1, built Thu Apr 4 09:59:17 PDT 2024
+Options:	-stylus -stylus 
+Date:		Fri Jan  2 10:24:00 2026
+Host:		il2225ht25_jacome (x86_64 w/Linux 5.15.0-164-generic) (12cores*48cpus*Intel(R) Xeon(R) CPU E7-8857 v2 @ 3.00GHz 30720KB)
+OS:		Rocky Linux 8.10 (Green Obsidian)
+
+License:
+		[10:24:00.443708] Configured Lic search path (21.01-s002): 27020@lic04.ug.kth.se:27020@lic05.ug.kth.se:3000@lic08.ug.kth.se:29000@lic06.ug.kth.se
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+
+
+**WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+Create and set the environment variable TMPDIR to /tmp/innovus_temp_920659_il2225ht25_jacome_jacome_IutCI0.
+
+Change the soft stacksize limit to 0.2%RAM (6192 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+@innovus 1> pwd
+/home/jacome/Desktop/IL2225_project_v2/SiLagoNN/task6
+@innovus 2> cd ..
+@innovus 3> pwd
+/home/jacome/Desktop/IL2225_project_v2/SiLagoNN
+@innovus 4> ls
+@innovus 5> cd phy
+@innovus 6> ls
+@innovus 7> cd db
+@innovus 8> ls
+@innovus 9> cd part
+@innovus 10> ls
+@innovus 11> cd drra_wrapper.enc.dat
+@innovus 12> read_db .
+#% Begin load design ... (date=01/02 10:25:25, mem=955.1M)
+**ERROR: (TCLCMD-989):	cannot open SDC file '../../../syn/db//FLAT_drra_wrapper.sdc' for mode 'functional'
+
+    while executing
+"create_constraint_mode -name functional -sdc_files ${::IMEX::dataVar}/drra_wrapper_AVF_RCBEST.top.constr \
+	 -ilm_sdc_files \
+	 [list ../../../syn/db/..."
+    (file "/home/jacome/Desktop/IL2225_project_v2/SiLagoNN/phy/db/part/drra_wrapper.enc.dat/viewDefinition.tcl" line 6)
+    invoked from within
+"::se_source_orig /home/jacome/Desktop/IL2225_project_v2/SiLagoNN/phy/db/part/drra_wrapper.enc.dat/viewDefinition.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel [concat ::se_source_orig $args]"
+    invoked from within
+"if {$encrypted == 2} {
+      catch {set [uplevel [concat ::se::source_encrypted_compressed $args]]}
+    } else {
+      set st [uplevel [concat ::se_so..."
+    invoked from within
+"if {$largeFile == 1} {
+    if {$enableVerbose == 0 && [::SE::isEchoFile] == 1} {
+      $putCmd "Sourcing $file_name"
+    }
+    set st [uplevel [concat..."
+    (procedure "source" line 163)
+    invoked from within
+"source /home/jacome/Desktop/IL2225_project_v2/SiLagoNN/phy/db/part/drra_wrapper.enc.dat/viewDefinition.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel #0 {source /home/jacome/Desktop/IL2225_project_v2/SiLagoNN/phy/db/part/drra_wrapper.enc.dat/viewDefinition.tcl}"
+
+
+ERROR: 
+
+
+    while executing
+"error $catchMsg"
+    (procedure "restoreDesign" line 33)
+
+''.
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+ERROR     TCLCMD-989           1  cannot open SDC file '%s' for mode '%s'  
+*** Message Summary: 0 warning(s), 1 error(s)
+
+''.
+''.
+@innovus 13> exit
+
+*** Memory Usage v#1 (Current mem = 1102.250M, initial mem = 494.961M) ***
+*** Message Summary: 1 warning(s), 1 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:45.3, real=0:02:12, mem=1102.2M) ---

@@ -20,3 +20,13 @@ assemble_design -block_dir ../phy/db/part/Silago_bot_4.enc.dat/pnr -encounter_fo
 assemble_design -block_dir ../phy/db/part/Silago_bot_5.enc.dat/pnr -encounter_format
 assemble_design -block_dir ../phy/db/part/Silago_bot_right_corner.enc.dat/pnr -encounter_format
 
+#Saving the db
+file mkdir ../phy/db/part/${DRRATOP_NAME}.enc.dat/assembled
+write_db ../phy/db/part/${DRRATOP_NAME}.enc.dat/assembled
+
+#PPA
+report_area > hierarchical_area.txt
+report_timing > hierarchical_timing.txt
+report_power > hierarchical_power.txt
+
+

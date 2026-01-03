@@ -17,8 +17,7 @@ write_db ${OUTPUT_DIR}/FLAT_${TOP_NAME}.dat
 write_netlist ${OUTPUT_DIR}/FLAT_${TOP_NAME}.v
 
 #Reports
-report_timing > ${RPT_DIR}/FLAT_${TOP_NAME}_timing.txt
-report_power > ${RPT_DIR}/FLAT_${TOP_NAME}_power.txt
-report_area > ${RPT_DIR}/FLAT_${TOP_NAME}_area.txt
-
-time_design -post_route > ${RPT_DIR}/FLAT_${TOP_NAME}_timing_postroute.txt
+report_timing > ${RPT_DIR}/${TOP_NAME}_physical_timing.txt
+report_power > ${RPT_DIR}/${TOP_NAME}_physical_power.txt
+report_area > ${RPT_DIR}/${TOP_NAME}_physical_area.txt
+time_design -post_route > ${RPT_DIR}/${TOP_NAME}_timing_postroute.txt

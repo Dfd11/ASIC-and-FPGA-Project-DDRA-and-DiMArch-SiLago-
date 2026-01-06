@@ -1,9 +1,9 @@
 foreach part_hinst ${partition_hinst_list} {
 # 1. create partitions for ALL design blocks
 create_partition -hinst ${part_hinst} -core_spacing 0.0 0.0 0.0 0.0 -rail_width 0.0 -min_pitch_left 2 \
-                    -min_pitch_right 2 -min_pitch_top 2 -min_pitch_bottom 2 -reserved_layer {1 2 3 4} \
-                     -pin_layer_top {3 5 7 9} -pin_layer_left {2 4 6 8} -pin_layer_bottom {3 5 7 9} \
-                     -pin_layer_right {2 4 6 8} -place_halo 10.0 0.0 0.0 0.0 -route_halo 10.0 -route_halo_top_layer 4 \
+                    -min_pitch_right 2 -min_pitch_top 2 -min_pitch_bottom 2 -reserved_layer {1 2} \
+                     -pin_layer_top {5 7 9} -pin_layer_left {4 6 8} -pin_layer_bottom {5 7 9} \
+                     -pin_layer_right {4 6 8} -place_halo 10.0 10.0 10.0 10.0 -route_halo 10.0 -route_halo_top_layer 9 \
                     -route_halo_bottom_layer 1
 }
 #2. align partitions

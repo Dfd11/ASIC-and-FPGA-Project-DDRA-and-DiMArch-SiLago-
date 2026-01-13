@@ -1,17 +1,17 @@
 source ../phy/scr/design_variables.tcl
 
 #1. set margin
-set margin 20
-set gap_x 20
-set gap_y 20
+set margin 50
+set gap_x 100
+set gap_y 100
 set x_offset [expr {$margin / 2.0}]
 set y_offset [expr {$margin / 2.0}]
 
 #2. set width for Silago design blocks
-set tile_width 300
+set tile_width 500
 
 #3. set height for Silago design blocks
-set tile_height 300
+set tile_height 500
 
 #4. create floorplan area
 create_floorplan -site SC8T_104CPP_CMOS22FDX -core_size [expr {2*$margin + 8*$tile_width + 7*$gap_x}] [expr {2*$margin + 2*$tile_height + $gap_y}] $margin $margin $margin $margin -no_snap_to_grid

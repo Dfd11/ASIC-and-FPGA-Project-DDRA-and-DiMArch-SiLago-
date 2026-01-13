@@ -28,8 +28,6 @@
 #
 # $ dc_shell -f ../syn/dc_flat.tcl
 ################################################################################
-## For logging
-log_file dc_bottomup.log
 ## First we set directories
 set SOURCE_DIR ../rtl
 set DB_DIR ../syn/db
@@ -42,6 +40,7 @@ remove_design -all
 source "${SYN_DIR}/synopsys_dc.setup"
 
 proc nth_pass {n} {
+    remove_design -all
     set prev_n [expr {$n - 1}]
     global SOURCE_DIR DB_DIR SYN_DIR
 ############################################################# start SILEGO BLOCK
@@ -55,6 +54,7 @@ proc nth_pass {n} {
     elaborate silego
     current_design silego
     link
+    set_load 0.13 [all_outputs]
     uniquify
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
@@ -70,6 +70,7 @@ proc nth_pass {n} {
     elaborate ${temp_top}
     current_design ${temp_top}
     link
+    set_load 0.13 [all_outputs]
     uniquify
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
@@ -85,6 +86,7 @@ proc nth_pass {n} {
     elaborate ${temp_top}
     current_design ${temp_top}
     link
+    set_load 0.13 f[all_outputs]
     uniquify
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
@@ -101,6 +103,7 @@ proc nth_pass {n} {
     elaborate ${temp_top}
     current_design ${temp_top}
     link
+    set_load 0.13 f[all_outputs]
     uniquify
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
@@ -116,6 +119,7 @@ proc nth_pass {n} {
     elaborate ${temp_top}
     current_design ${temp_top}
     link
+    set_load 0.13 [all_outputs]
     uniquify
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
@@ -131,6 +135,7 @@ proc nth_pass {n} {
     elaborate ${temp_top}
     current_design ${temp_top}
     link
+    set_load 0.13 [all_outputs]
     uniquify
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
@@ -146,6 +151,7 @@ proc nth_pass {n} {
     elaborate ${temp_top}
     current_design ${temp_top}
     link
+    set_load 0.13 [all_outputs]
     uniquify
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {
@@ -161,7 +167,6 @@ proc nth_pass {n} {
     elaborate ${temp_top}
     current_design ${temp_top}
     link
-    #uniquify
     set_load 0.13 [all_outputs]
     source "${SYN_DIR}/constraints.sdc"
 ## We do not use compile yet, we could but we double check with the don't touch command again and then we compile, as this drra_Wrapper top module takes in everything we've been compiling before.
@@ -221,13 +226,11 @@ nth_pass 2
 current_design drra_wrapper
 report_area > "${SYN_DIR}/rpt/BOTTOMUP_area.txt"
 report_power > "${SYN_DIR}/rpt/BOTTOMUP_power.txt"
-report_timing > "${SYN_DIR}/rpt/BOTTOM_UPtiming.txt"
+report_timing > "${SYN_DIR}/rpt/BOTTOMUP_timing.txt"
 
 ## Generate netlist for further tasks
 write_file -format verilog -hier -output "${DB_DIR}/BOTTOMUP_drra_wrapper.v"
 
 ## For Task 4
-write_sdc "${DB_DIR}/drra_wrapper_bottomup.sdc"
-
-log_file
+write_sdc "${DB_DIR}/BOTTOMUP_drra_wrapper.sdc"
 

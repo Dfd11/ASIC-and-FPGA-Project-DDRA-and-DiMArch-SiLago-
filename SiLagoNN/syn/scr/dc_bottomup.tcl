@@ -103,7 +103,7 @@ proc nth_pass {n} {
     elaborate ${temp_top}
     current_design ${temp_top}
     link
-    set_load 0.13 f[all_outputs]
+    set_load 0.13 [all_outputs]
     uniquify
     source "${SYN_DIR}/constraints.sdc"
     if  {$n > 1} {

@@ -19,43 +19,22 @@ set partition_hinst_list {
 }
 
 #partition module names from RTL
-#Now for the bottom_up outputs we use this. Can be seen if we read_design in innovus and see the DesignBrowser instances.
+## These were for the flat logic synthesis output.
 set partition_module_list {
     Silago_top_left_corner \
-    Silago_top \
-    Silago_top \
-    Silago_top \
-    Silago_top \
-    Silago_top \
-    Silago_top \
+    Silago_top_0 \
+    Silago_top_1 \
+    Silago_top_2 \
+    Silago_top_3 \
+    Silago_top_4 \
+    Silago_top_5 \
     Silago_top_right_corner \
     Silago_bot_left_corner \
-    Silago_bot \
-    Silago_bot \
-    Silago_bot \
-    Silago_bot \
-    Silago_bot \
-    Silago_bot \
+    Silago_bot_0 \
+    Silago_bot_1 \
+    Silago_bot_2 \
+    Silago_bot_3 \
+    Silago_bot_4 \
+    Silago_bot_5 \
     Silago_bot_right_corner
 }
-
-
-## These were for the flat logic synthesis output.
-#set partition_module_list {
-#    Silago_top_left_corner \
-#    Silago_top_0 \
-#    Silago_top_1 \
-#    Silago_top_2 \
-#    Silago_top_3 \
-#    Silago_top_4 \
-#    Silago_top_5 \
-#    Silago_top_right_corner \
-#    Silago_bot_left_corner \
-#    Silago_bot_0 \
-#    Silago_bot_1 \
-#    Silago_bot_2 \
-#    Silago_bot_3 \
-#    Silago_bot_4 \
-#    Silago_bot_5 \
-#    Silago_bot_right_corner
-#}

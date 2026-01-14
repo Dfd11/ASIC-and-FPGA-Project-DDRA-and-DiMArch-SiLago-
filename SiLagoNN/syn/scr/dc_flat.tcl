@@ -80,7 +80,7 @@ report_area > ${REPORT_DIR}/FLAT_${TOP_NAME}_area.txt
 report_cell > ${REPORT_DIR}/FLAT_${TOP_NAME}_cells.txt
 report_timing > ${REPORT_DIR}/FLAT_${TOP_NAME}_timing.txt
 report_power > ${REPORT_DIR}/FLAT_${TOP_NAME}_power.txt
-report_constraints > ${REPORT_DIR}/FLAT_${TOP_NAME}_constratints.sdc
+report_constraints > ${REPORT_DIR}/FLAT_${TOP_NAME}_constraints.sdc
 
 ## Create Netlists
 write -hierarchy -format ddc -output ${OUT_DIR}/FLAT_${TOP_NAME}.ddc

@@ -2,7 +2,7 @@ source ../phy/scr/global_variables.tcl
 source ../phy/scr/design_variables.tcl
 
 cd ../phy/db/part
-read_db ${DRRATOP_NAME}.enc.dat
+read_db ${DRRATOP_NAME}
 
 foreach module $partition_module_list {
 	#1. read ilm master partitions
@@ -18,5 +18,5 @@ ccopt_design
 route_design
 
 #6. write the place and routed db
-write_db ${DRRATOP_NAME}.enc.dat/pnr
+write_db ${DRRATOP_NAME}/pnr
 

@@ -1,6 +1,6 @@
 set NUM_CPUS 8
 #set the top name of the design
-set TOP_NAME FLAT_drra_wrapper
+set TOP_NAME BOTTOMUP_drra_wrapper
 set DRRATOP_NAME drra_wrapper
 
 # Directories

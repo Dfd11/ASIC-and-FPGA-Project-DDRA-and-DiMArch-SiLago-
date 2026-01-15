@@ -62,7 +62,7 @@ elaborate drra_wrapper
 ### Link: The purpose of this command is to locate all of the designs and library components referenced in the current  desig and connect (link) them to the current design.
 link
 
-## ???
+
 uniquify
 if {[check_design] == 0} {
     puts "Error: check design failed"

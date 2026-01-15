@@ -19,23 +19,23 @@ set partition_hinst_list {
 }
 
 #partition module names from RTL
-## These are for the bottomup logic synthesis output.
+## Master
 set partition_module_list {
     Silago_top_left_corner \
     Silago_top \
-    Silago_top \
-    Silago_top \
-    Silago_top \
-    Silago_top \
-    Silago_top \
+    #Silago_top \
+    #Silago_top \
+    #Silago_top \
+    #Silago_top \
+    #Silago_top \
     Silago_top_right_corner \
     Silago_bot_left_corner \
     Silago_bot \
-    Silago_bot \
-    Silago_bot \
-    Silago_bot \
-    Silago_bot \
-    Silago_bot \
+    #Silago_bot \
+    #Silago_bot \
+    #Silago_bot \
+    #Silago_bot \
+    #Silago_bot \
     Silago_bot_right_corner
 }
 
